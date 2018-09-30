@@ -1,0 +1,240 @@
+%% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass{beamer}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage{animate}
+\usepackage{graphicx}
+\def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\put(#1,#2){#3}}}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{enumerate}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\definecolor{LightGray}{gray}{0.9}
+
+\ifx\hypersetup\undefined
+  \AtBeginDocument{%
+    \hypersetup{unicode=true,
+ bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 0},colorlinks=false}
+  }
+\else
+  \hypersetup{unicode=true,
+ bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 0},colorlinks=false}
+\fi
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+ % this default might be overridden by plain title style
+ \newcommand\makebeamertitle{\frame{\maketitle}}%
+ % (ERT) argument for the TOC
+ \AtBeginDocument{%
+   \let\origtableofcontents=\tableofcontents
+   \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+   \def\gobbletableofcontents#1{\origtableofcontents}
+ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usetheme{Malmoe}
+% or ...
+\useoutertheme{infolines}
+\addtobeamertemplate{headline}{}{\vskip2pt}
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+
+
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\makeatother
+
+\begin{document}
+
+\title[Discussion 1 - Review]{CS/MATH 111, Discrete Structures - Fall 2018. \\ Discussion 1 - Review }
+\author{Andres Calderon}
+\institute{University of California, Riverside}
+
+\makebeamertitle
+
+% \AtBeginSection[]{
+%   \frame<beamer>{ 
+%     \frametitle{Agenda}   
+%     \tableofcontents[currentsubsection] 
+%   }
+% }
+
+\newif\iflattersubsect
+
+\AtBeginSection[] {
+    \begin{frame}<beamer>
+    \frametitle{Outline} %
+    \tableofcontents[currentsection]  
+    \end{frame}
+    \lattersubsectfalse
+}
+
+\AtBeginSubsection[] {
+    % \iflattersubsect
+    \begin{frame}<beamer>
+    \frametitle{Outline} %
+    \tableofcontents[currentsubsection]  
+    \end{frame}
+    % \fi
+    % \lattersubsecttrue
+}
+
+\section{Logic}
+
+\begin{frame}{Logic}
+  For sentences (a) and (b), tell which of the sentences (i)-(v) is \textbf{equivalent} to it.\\
+  \begin{enumerate}[(a)]
+    \item \textbf{``If X is green or pink, then X is a vegetable.''}
+    \begin{enumerate}[(i)]
+      \item ``X is green and X is a vegetable.''
+      \item ``X is not green and X is not a vegetable.''
+      \item ``X is not green or X is a vegetable.''
+      \item ``X is not green and X is a vegetable.''
+      \item None of the above.
+    \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Logic}
+  For sentences (a) and (b), tell which of the sentences (i)-(v) is \textbf{equivalent} to it.\\
+  \begin{enumerate}[(a)]
+    \item \textbf{``If X is green or pink, then X is a vegetable.''}
+    \begin{enumerate}[(i)]
+      \item ``X is green and X is a vegetable.''
+      \item ``X is not green and X is not a vegetable.''
+      \item ``X is not green or X is a vegetable.''
+      \item ``X is not green and X is a vegetable.''
+      \item \textbf{None of the above.}
+    \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Logic}
+  For sentences (a) and (b), tell which of the sentences (i)-(v) is \textbf{equivalent} to it.\\
+  \begin{enumerate}[(b)]
+    \item \textbf{``X is a pig, and Y or Z is a bird.''}
+    \begin{enumerate}[(i)]
+      \item ``Either X is not a pig, or Y and Z are not birds.''
+      \item ``Either X is a pig and Y is a bird, or X is a pig and Z is a bird.''
+      \item ``X is not a pig, and neither Y nor Z is a bird.''
+      \item ``X is a pig, and both Y and Z are birds.''
+      \item None of the above.
+    \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Logic}
+  For sentences (a) and (b), tell which of the sentences (i)-(v) is \textbf{equivalent} to it.\\
+  \begin{enumerate}[(b)]
+    \item \textbf{``X is a pig, and Y or Z is a bird.''}
+    \begin{enumerate}[(i)]
+      \item ``Either X is not a pig, or Y and Z are not birds.''
+      \item \textbf{``Either X is a pig and Y is a bird, or X is a pig and Z is a bird.''}
+      \item ``X is not a pig, and neither Y nor Z is a bird.''
+      \item ``X is a pig, and both Y and Z are birds.''
+      \item None of the above.
+    \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Logic}
+  For sentences (c), (d), and (e), tell which of the sentences (i)-(v) is its \textbf{negation}.\\
+  \begin{enumerate}[(c)]
+    \item \textbf{``$\boldsymbol{\forall x\ \exists y : y < x^2 + 17}$''}
+    \begin{enumerate}[(i)]
+    \item ``$\forall x\ \exists y : y \geq x^2 + 17$''
+    \item ``$\forall y\ \exists x : x^2 + 17 < y$''
+    \item ``$\exists x\ \exists y : y > x^2 + 17$''
+    \item ``$\exists x\ \forall y : y \geq x^2 + 17$''
+    \item None of the above.
+    \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Logic}
+  For sentences (c), (d), and (e), tell which of the sentences (i)-(v) is its \textbf{negation}.\\
+  \begin{enumerate}[(c)]
+    \item \textbf{``$\boldsymbol{\forall x\ \exists y : y < x^2 + 17}$''}
+    \begin{enumerate}[(i)]
+    \item ``$\forall x\ \exists y : y \geq x^2 + 17$''
+    \item ``$\forall y\ \exists x : x^2 + 17 < y$''
+    \item ``$\exists x\ \exists y : y > x^2 + 17$''
+    \item \textbf{``$\boldsymbol{\exists x\ \forall y : y \geq x^2 + 17}$''}
+    \item None of the above.
+    \end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+\section{Counting}
+
+\begin{frame}{Counting}
+  \begin{itemize}
+    \item Anything that could move (or could be moved), will be tracked...
+    \begin{itemize}
+      \item Sensors, Sensors everywhere...
+      \item Smart phones, GPS, RFID, WiFi, Bluetooth, ZigBee, IoT, Satellites, Drones, Surveillance cameras...
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\section{Equations}
+
+\subsection{Quadratic Equations}
+
+\begin{frame}{Quadratic equations}
+  \begin{itemize}
+    \item Anything that could move (or could be moved), will be tracked...
+    \begin{itemize}
+      \item Sensors, Sensors everywhere...
+      \item Smart phones, GPS, RFID, WiFi, Bluetooth, ZigBee, IoT, Satellites, Drones, Surveillance cameras...
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\subsection{Cubic Equations}
+
+\begin{frame}{Cubic equations}
+  \begin{itemize}
+    \item Anything that could move (or could be moved), will be tracked...
+    \begin{itemize}
+      \item Sensors, Sensors everywhere...
+      \item Smart phones, GPS, RFID, WiFi, Bluetooth, ZigBee, IoT, Satellites, Drones, Surveillance cameras...
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%\begin{frame}{Applications}
+%  Visual mining of cyclone paths.
+%  \centering
+%  \includegraphics[width=.85\linewidth]{Figures/cyclones.png}
+%  \blfootnote{\tiny \href{https://tinyurl.com/nhmwerr}{(Turdukulov, IJGIS'14)}}
+%\end{frame}
+
+\
+\end{document}
