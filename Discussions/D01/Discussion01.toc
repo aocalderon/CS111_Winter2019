@@ -1,5 +1,0 @@
-\beamer@sectionintoc {1}{Logic}{2}{0}{1}
-\beamer@sectionintoc {2}{Counting}{9}{0}{2}
-\beamer@sectionintoc {3}{Equations}{11}{0}{3}
-\beamer@subsectionintoc {3}{1}{Quadratic Equations}{12}{0}{3}
-\beamer@subsectionintoc {3}{2}{Cubic Equations}{14}{0}{3}
