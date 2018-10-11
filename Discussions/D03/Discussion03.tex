@@ -208,11 +208,152 @@ If we can write a number in this form then
     $$A \bmod B = R$$
 \end{frame}
 
+\begin{frame}{Modular Addition and Subtraction\footnote{For prove have a look at \url{https://tinyurl.com/yaltbzgz}}}
+    $$(A + B) \bmod C = (A \bmod C + B \bmod C) \bmod C$$ 
+Example:
+    $$A = 14, B = 17, C = 5$$
+\end{frame}
+
+\begin{frame}{Modular Addition and Subtraction}
+Solve for Y:
+$$(699 + 997) \bmod 3 = Y$$
+\end{frame}
+
+\begin{frame}{Modular Addition and Subtraction}
+Solve for Y:
+$$(699 + 997) \bmod 3 = Y$$
+
+$Y=1$
+\end{frame}
+
+\begin{frame}{Modular Addition and Subtraction}
+Give:\\
+$A \bmod 8 = 3$\\
+$(A + 19) \bmod 8 = Y$\\
+Solve for Y.
+\end{frame}
+
+\begin{frame}{Modular Addition and Subtraction}
+Give:\\
+$A \bmod 8 = 3$\\
+$(A + 19) \bmod 8 = Y$\\
+Solve for Y.
+
+$Y = 6$
+\end{frame}
+
+\section{Exponentiation}
+
+\begin{frame}{Modular multiplication\footnote{For prove have a look at \url{https://tinyurl.com/ksf5muz}}}
+    $$(A * B) \bmod C = (A \bmod C * B \bmod C) \bmod C$$ 
+Example:
+    $$A = 4, B = 7, C = 6$$
+\end{frame}
+
+\begin{frame}{Modular exponentiation}
+    $$A ^ B \bmod C = ( (A \bmod C) ^ B) \bmod C$$ 
+Example:\\
+Let's solve:
+    $$2^{90} \bmod 13$$
+but we have a calculator that can't hold any numbers larger than $2^{50}$...
+\end{frame}
+
+\begin{frame}{Modular exponentiation}
+Example:\\
+    $$2^{90} \bmod 13 = 2^{50} * 2^{40} \bmod 13$$
+    $$2^{90} \bmod 13 = (2^{50} \bmod 13 * 2^{40} \bmod 13) \bmod 13$$
+    $$2^{90} \bmod 13 = (2^{50} \bmod 13 * 2^{40} \bmod 13) \bmod 13$$
+\\Using our calculator we know:\\
+    $$2^{50} \bmod 13 = 1125899906842624 \bmod 13 = 4$$
+    $$2^{40} \bmod 13 = 1099511627776 \bmod 13 = 3$$
+\end{frame}
+
+\begin{frame}{Modular exponentiation}
+Example:\\
+    $$2^{90} \bmod 13 = 2^{50} * 2^{40} \bmod 13$$
+    $$2^{90} \bmod 13 = (2^{50} \bmod 13 * 2^{40} \bmod 13) \bmod 13$$
+    $$2^{90} \bmod 13 = (2^{50} \bmod 13 * 2^{40} \bmod 13) \bmod 13$$
+    $$2^{90} \bmod 13 = (4 * 3) \bmod 13$$
+    $$2^{90} \bmod 13 = 12 \bmod 13$$
+    $$2^{90} \bmod 13 = 12$$
+\end{frame}
+
+\begin{frame}{Modular exponentiation by squaring}
+    $$A^2 \bmod C = (A * A) \bmod C = ((A \bmod C) * (A \bmod C)) \bmod C$$
+    Solve:\\
+    $$7^{256} \bmod 13$$
+\end{frame}
+
+\begin{frame}{Modular exponentiation by squaring}
+$$7^1 \bmod 13 = 7$$
+$$7^2 \bmod 13 = (7^1 * 7^1) \bmod 13 = (7^1 \bmod 13 * 7^1 \bmod 13) \bmod 13$$
+\\
+\end{frame}
+
+\begin{frame}{Modular exponentiation by squaring}
+$$7^1 \bmod 13 = 7$$
+$$7^2 \bmod 13 = (7^1 * 7^1) \bmod 13 = (7^1 \bmod 13 * 7^1 \bmod 13) \bmod 13$$
+\\
+$$7^2 \bmod 13 = (7 *7) \bmod 13 = 49 \bmod 13 = 10$$
+$$7^2 \bmod 13 = 10$$
+$$7^4 \bmod 13 = (7^2 *7^2) \bmod 13 = (7^2 \bmod 13 * 7^2 \bmod 13) \bmod 13$$
+\\
+\end{frame}
+
+\begin{frame}{Modular exponentiation by squaring}
+$$7^1 \bmod 13 = 7$$
+$$7^2 \bmod 13 = (7^1 * 7^1) \bmod 13 = (7^1 \bmod 13 * 7^1 \bmod 13) \bmod 13$$
+\\
+$$7^2 \bmod 13 = (7 *7) \bmod 13 = 49 \bmod 13 = 10$$
+$$7^2 \bmod 13 = 10$$
+$$7^4 \bmod 13 = (7^2 *7^2) \bmod 13 = (7^2 \bmod 13 * 7^2 \bmod 13) \bmod 13$$
+\\
+$$7^4 \bmod 13 = (10 * 10) \bmod 13 = 100 \bmod 13 = 9$$
+$$7^4 \bmod 13 = 9$$
+$$7^8 \bmod 13 = (7^4 * 7^4) \bmod 13 = (7^4 \bmod 13 * 7^4 \bmod 13) \bmod 13$$
+\\
+$$\vdots$$
+\end{frame}
+
+\begin{frame}{Modular exponentiation by squaring}
+$$\vdots$$
+\\
+$$7^{256} \bmod 13 = (7^{128} * 7^{128}) \bmod 13 = (7^{128} \bmod 13 * 7^{128} \bmod 13) \bmod 13$$
+$$7^{256} \bmod 13 = (3 * 3) \bmod 13 = 9 \bmod 13 = 9$$
+$$7^{256} \bmod 13 = 9$$
+\end{frame}
+
+\begin{frame}{Modular exponentiation by squaring}
+Solve:\\
+    $$5^{117} \bmod 19$$
+\\
+Check the solution at \url{https://tinyurl.com/gvq9vxz}...
+\end{frame}
+
+\section{Inverse modulo}
+
+\begin{frame}{Inverse modulo}
+What is a modular inverse?
+  \begin{itemize}
+   \item The modular inverse of $A \pmod C$ is $A^{-1}$.
+   \item $(A * A^{-1}) \equiv 1 \pmod C$ or equivalently $(A * A^{-1}) \bmod C = 1$.
+   \item Only the numbers coprime (or relatively prime) to $C$ (numbers that share no prime factors with $C$) have a modular inverse $\pmod C$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Inverse modulo}
+Find the inverse for:
+  \begin{itemize}
+   \item $3 \pmod 7$.
+   \item $2 \pmod 6$.
+  \end{itemize}
+Solution at \url{https://tinyurl.com/hgxskmk}...
+\end{frame}
 
 \begin{frame}{Webography}
   \begin{enumerate}
-    \item Khan Academy - Journey into Cryptography \\ \url{https://tinyurl.com/jvqfq8t}
-    \item \url{https://tinyurl.com/y7jbfqfe}
+    \item Khan Academy - Journey into Cryptography \\ Modular arithmetic \\ \url{https://tinyurl.com/jvqfq8t}
+    \item Khan Academy - Journey into Cryptography \\ Randomized algorithms \\  \url{https://tinyurl.com/l4ta3ym}
   \end{enumerate}
 \end{frame}
 
