@@ -350,6 +350,51 @@ Find the inverse for:
 Solution at \url{https://tinyurl.com/hgxskmk}...
 \end{frame}
 
+\begin{frame}{Linear congruence modulo}
+Solve:
+  \begin{itemize}
+   \item $17x \equiv 1 \pmod{43}$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Linear congruence modulo}
+$17x \equiv 1 \pmod{43}$.\\
+$17^{-1} \cdot 17x \equiv 17^{-1} \pmod{43}$.\\
+$x \equiv 17^{-1} \pmod{43}$.\\
+\vspace{0.5cm}
+Now we find $17^{-1} \pmod{43}$\\
+$$a \cdot b \equiv 1 \pmod m$$
+$$a \cdot 17 \equiv 1 \pmod{43}$$
+$$a \cdot 17 = 43 \cdot b + 1$$
+\end{frame}
+
+\begin{frame}{Linear congruence modulo\footnote{\tiny Have a look at \url{https://tinyurl.com/y7jtxze4} for an alternative method...}}
+Now we find $17^{-1} \pmod{43}$
+$$a \cdot 17 \equiv 1 \pmod{43}$$
+$$a \cdot 17 = 43 \cdot b + 1$$
+$$a=38, b=15$$
+So we have \\
+$$38 \cdot 17 = 43 \cdot 15 + 1$$
+$$38 \cdot 17 \equiv 1 \pmod{43}$$
+and \\
+$$17^{-1} = 38 \pmod{43}$$
+\end{frame}
+
+\begin{frame}{Linear congruence modulo}
+$17x \equiv 1 \pmod{43}$.\\
+$17^{-1} \cdot 17x \equiv 17^{-1} \pmod{43}$.\\
+$x \equiv 17^{-1} \pmod{43}$.\\
+\vspace{0.5cm}
+We know that: $17^{-1} = 38 \pmod{43}$, so:\\
+$$x \equiv 38 \pmod{43}$$
+\end{frame}
+
+\section{Fermat's Little Theorem}
+
+\begin{frame}{Fermat's Little Theorem}
+Let's have a loot at \url{https://tinyurl.com/l4ta3ym}
+\end{frame}
+
 \begin{frame}{Webography}
   \begin{enumerate}
     \item Khan Academy - Journey into Cryptography \\ Modular arithmetic \\ \url{https://tinyurl.com/jvqfq8t}
