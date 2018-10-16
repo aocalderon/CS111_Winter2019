@@ -395,6 +395,25 @@ $$x \equiv 38 \pmod{43}$$
 Let's have a loot at \url{https://tinyurl.com/l4ta3ym}
 \end{frame}
 
+\begin{frame}{Fermat's Little Theorem}
+\center{ If $p \nmid a$, then $a^{p-1} \equiv 1 \pmod p$. }\\
+\vspace{0.5cm}
+Example: $a = 5, p = 23$. \\
+So, $5^{22} \equiv 1 \pmod{23}$. \\
+\end{frame}
+
+\begin{frame}{Fermat's Little Theorem}
+$5^{22} \equiv 1 \pmod{23}$. \\
+\vspace{0.5cm}
+We compute this large power of 5 by succesive squaring...
+$$5^2 \equiv  25   \equiv 2   \pmod{23}$$
+$$5^4 \equiv  2^2  \equiv 4  \pmod{23}$$
+$$5^8 \equiv  4^2  \equiv 16 \pmod{23}$$
+$$5^16 \equiv 16^2 \equiv 256 \equiv 26 \equiv 3 \pmod{23}$$
+Hence we have...
+$$5^{22} \equiv 5^{16+4+2} \equiv 5^{16} \cdot 5^4 \cdot 5^2 \equiv 3 \cdot 4 \cdot 2 \equiv 24 \equiv 1 \pmod{23}$$
+\end{frame}
+
 \begin{frame}{Webography}
   \begin{enumerate}
     \item Khan Academy - Journey into Cryptography \\ Modular arithmetic \\ \url{https://tinyurl.com/jvqfq8t}
