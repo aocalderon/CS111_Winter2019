@@ -1,0 +1,237 @@
+\documentclass{beamer}
+
+\usepackage{hyperref}
+
+%\usepackage{minted}
+
+\usepackage{animate}
+
+\usepackage{graphicx}
+
+\def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\put(#1,#2){#3}}}
+
+\usepackage{color}
+
+\usepackage{tikz}
+
+\usepackage{amssymb}
+
+\usepackage{enumerate}
+
+
+\newcommand\blfootnote[1]{%
+
+  \begingroup
+
+  \renewcommand\thefootnote{}\footnote{#1}%
+
+  \addtocounter{footnote}{-1}%
+
+  \endgroup
+
+}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+
+ % this default might be overridden by plain title style
+
+ \newcommand\makebeamertitle{\frame{\maketitle}}%
+
+ % (ERT) argument for the TOC
+
+ \AtBeginDocument{%
+
+   \let\origtableofcontents=\tableofcontents
+
+   \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+
+   \def\gobbletableofcontents#1{\origtableofcontents}
+
+ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+
+\usetheme{Malmoe}
+
+% or ...
+
+\useoutertheme{infolines}
+
+\addtobeamertemplate{headline}{}{\vskip2pt}
+
+
+
+\setbeamercovered{transparent}
+
+% or whatever (possibly just delete it)
+
+\makeatother
+
+\begin{document}
+\title[Discussion 4 - Cryptography]{CS/MATH 111, Discrete Structures - Fall 2018. \\ Discussion 4 - Number Theory and Cryptography }
+\author[CS111]{Andres, Sara, Elena}
+\institute[Fall'18]{University of California, Riverside}
+\makebeamertitle
+\newif\iflattersubsect
+
+\AtBeginSection[] {
+    \begin{frame}<beamer>
+    \frametitle{Outline} 
+    \tableofcontents[currentsection]  
+    \end{frame}
+    \lattersubsectfalse
+}
+
+\AtBeginSubsection[] {
+    \begin{frame}<beamer>
+    \frametitle{Outline} 
+    \tableofcontents[currentsubsection]  
+    \end{frame}
+}
+
+\section{Problem 2}
+
+\begin{frame}{Problem 2}
+    \begin{itemize}
+        \item ``Break'' RSA by guessing the factorization of $n$
+        \item Compute Euler’s Totient Function $$\phi(n)$$ 
+        \item Compute the decryption exponent $d$ by computing $$e^{-1} \pmod{\phi(n)}$$ solve this by enumerating.
+        \item Using private key pair $(d,n)$, decrypt the messages by $$ M = C^{d} \pmod n$$ $C$ stands for the encrypted messages.
+      \end{itemize}
+\end{frame}
+
+\begin{frame}{Problem 2}
+    \begin{itemize}
+        \item Show computation for 3 letters in Latex: step-by-step, explaining everything;
+        \item For the remaining message: \\
+            Need to write a program (any language) -- Attach the program or compute by hand. All the computations attach (It is ok if written in pen).
+        \item Decode the message
+    \end{itemize}
+\end{frame}
+
+\section{Primes, congruent to $3 \mod 4$}
+
+\begin{frame}{Infinitely many primes, congruent to $3 \mod 4$}
+    \begin{itemize}
+        \item Assume that $$p_1 = 3, \cdots, p_k$$ are primes of the form $$p_j \equiv 3 \pmod 4$$
+        \item We will construct a new one by looking at $$N = 4 \cdot (p_1 \cdot p_2 \cdot \ldots \cdot p_k) - 1 $$ or $$N = 4 \cdot (p_1 \cdot p_2 \cdot \ldots \cdot p_k) + 3$$ would also work.          
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Infinitely many primes, congruent to $3 \mod 4$}
+    \begin{itemize}
+        \item $N = 4 \cdot (p_1 \cdot p_2 \cdot \ldots \cdot p_k) - 1 \equiv 3 \pmod{4}$
+        \item Let $q$ be a prime factor of $N$, s.t. $q \mid N$, then:
+        \begin{itemize}
+            \item $q \not\equiv 0 \pmod 4$ \hspace{0.5cm} {\scriptsize [$q$ should not be prime]}
+            \item $q \not\equiv 2 \pmod 4$ \hspace{0.5cm} {\scriptsize [$N$ is odd]}
+            \item $q \not\equiv 3 \pmod 4$ \hspace{0.5cm} {\scriptsize [$q$ should be part of \{$p_1, p_2. \cdots, p_k$\}]}
+            \item $q \equiv 1 \pmod 4$
+        \end{itemize}
+        \item Then, $N = q_1 \cdot q_2 \cdot \ldots \cdot q_t$ and $\forall i \in \{1,2,\cdots,t\}: q \equiv 1 \mod 4$.
+        \item So, $N \equiv 1 \mod 4$, which is a contradiction of our initial definition of $N$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Infinitely many primes, congruent to 3 mod 4}
+    \begin{itemize}
+        \item First, none of the primes $p_j$ divides $N$: note that $p_j | N + 1$, so if we had $p_j | N$, then we would have $p_j |(N + 1) - N = 1$: contradiction.
+        \item Now we observe that at least one of the prime factors of $N$ has the form $p \equiv 3 \mod 4$ (in fact, $N$ is odd).
+        \item Hence if such a prime does not exist, then all prime factors of $N$ have the form $p \equiv 1 \pmod 4$; but then we would have $N \equiv 1 \pmod 4$ contradicting the construction of $N$. 
+    \end{itemize}
+\end{frame}
+
+\section{Conditions for parameters for RSA}
+
+\begin{frame}{Conditions for parameters for RSA}
+    What if ??? \\
+    $gcd(e, \phi(n)) > 1$ 
+    $$d \equiv e^{-1} \pmod{ \phi(n)}$$
+    $$e \cdot d \equiv 1 \pmod{\phi(n)}$$
+    \begin{itemize}
+        \item p and q are small...
+        \item $p = q$
+        \begin{itemize}
+            \item $\phi(n) = (p-1)(q-1)$ ?
+            \item $\phi(n) = (p-1)(p-1)$ ???
+        \end{itemize}
+        \item Is double inscription correct?
+        \item Is double inscription more secure?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+    \centering
+    \includegraphics[width=.7\linewidth]{1.png}
+\end{frame}
+
+\begin{frame}{Example}
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+         p  & q  & e  & d  & correct? & Encrypt $M = 7$. Justify.  \\ \hline
+         6  & 11 & 5  & 29 & No       & 6 is not prime  \\ \hline
+         19 & 7  & 5  & 37 & No       & $e \cdot d \not\equiv 1 \pmod{\phi(n)} $  \\ \hline
+         17 & 17 & 9  & 89 & No       & $p = q$  \\ \hline
+         29 & 11 & 7  & 37 & No       & $e \cdot d \not\equiv 1 \pmod{\phi(n)} $  \\ \hline
+         3  & 7  & 5  & 5  & Yes      & $n = 21$ and $C = 7^5 \pmod{21}$  \\ \hline
+    \end{tabular}
+\end{frame}
+
+\section{Miller-Rabin Primality Test}
+
+\begin{frame}{Miller-Rabin Primality Test}
+    Primality is easy!
+    \begin{itemize}
+        \item A primality test is a test or algorithm for determining whether an input number is prime.
+        \item $N$ is prime if it has no divisors less or equal to $\sqrt{N}$.
+        \item Prove, that all primes are of the form $6k \pm 1$.
+        \item Most popular algorithms for primality testing are \textbf{probabilistic}; may output a composite number as a prime.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Miller-Rabin Primality Test}
+    \begin{itemize}
+        \item Let $n$ be a prime number\footnote{$n > 2$}. Then $n - 1$ is even and we can write it as $2^{s} \cdot d$
+        \item So we have: $$n - 1 = 2^{s} \cdot d$$where $s$ and $d$ are positive integers, and $d$ is odd. 
+        \item For each $a$ in $(\frac{\mathbb{Z}}{n\mathbb{Z}})^{*}$, either...
+        \begin{enumerate}
+            \item $a^{d} \equiv 1 \pmod n$ or    
+            \item $a^{2^r \cdot d} \equiv -1 \pmod n$, {\scriptsize For all $0 \leq r \leq s - 1$.}
+        \end{enumerate}
+        \item If we can find $a$, s.t. (1) and (2) are not true for all $r$, then $n$ is not prime.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+Is $n = 221$ prime?
+    \begin{itemize}
+        \item We write $n - 1 = 220 = 2^2 \cdot 55$, so $s = 2$ and $d = 55$.
+        \item We randomly select a number $a$ s.t. $1 < a < n - 1$. Let $a = 174$. 
+        \item We proceed to compute:
+        \begin{itemize}
+            \item $a^{2^0 \cdot d} \mod n = 174^{55} \mod 221 = 47 \neq 1,- 1$
+            \item $a^{2^1 \cdot d} \mod n = 174^{110} \mod 221 = 220 = -1$
+        \end{itemize}
+        \item Since $220 \equiv −1 \mod n$, either 221 is prime, or 174 is a \textbf{strong liar} for 221.
+        \item Keep trying...
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+Is $n = 221$ prime?
+    \begin{itemize}
+        \item We write $n - 1 = 220 = 2^2 \cdot 55$, so $s = 2$ and $d = 55$.
+        \item We try another random $a$, this time let $a = 137$:
+        \begin{itemize}
+            \item $a^{2^0 \cdot d} \mod n = 137^{55} \mod 221 = 188 \neq 1, -1$
+            \item $a^{2^1 \cdot d} \mod n = 137^{110} \mod 221 = 205 \neq 1, -1$
+        \end{itemize}
+        \item Hence 137 is a \textbf{witness} for the compositeness of 221, and 174 was in fact a strong liar.
+        \item Factors of 221 are 13 and 17.
+    \end{itemize}
+\end{frame}
+
+\end{document}
