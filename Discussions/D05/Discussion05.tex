@@ -1,0 +1,230 @@
+\documentclass{beamer}
+
+\usepackage{hyperref}
+
+%\usepackage{minted}
+
+\usepackage{animate}
+
+\usepackage{graphicx}
+
+\def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\put(#1,#2){#3}}}
+
+\usepackage{color}
+
+\usepackage{tikz}
+
+\usepackage{amssymb}
+
+\usepackage{enumerate}
+
+
+\newcommand\blfootnote[1]{%
+
+  \begingroup
+
+  \renewcommand\thefootnote{}\footnote{#1}%
+
+  \addtocounter{footnote}{-1}%
+
+  \endgroup
+
+}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+
+ % this default might be overridden by plain title style
+
+ \newcommand\makebeamertitle{\frame{\maketitle}}%
+
+ % (ERT) argument for the TOC
+
+ \AtBeginDocument{%
+
+   \let\origtableofcontents=\tableofcontents
+
+   \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+
+   \def\gobbletableofcontents#1{\origtableofcontents}
+
+ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+
+\usetheme{Malmoe}
+
+% or ...
+
+\useoutertheme{infolines}
+
+\addtobeamertemplate{headline}{}{\vskip2pt}
+
+
+
+\setbeamercovered{transparent}
+
+% or whatever (possibly just delete it)
+
+\makeatother
+
+\begin{document}
+\title[Discussion 5 - Recurrences]{CS/MATH 111, Discrete Structures - Fall 2018. \\ Discussion 5 - Linear Recurrence Relations }
+\author[CS111]{Andres, Sara, Elena}
+\institute[Fall'18]{University of California, Riverside}
+\makebeamertitle
+\newif\iflattersubsect
+
+\AtBeginSection[] {
+    \begin{frame}<beamer>
+    \frametitle{Outline} 
+    \tableofcontents[currentsection]  
+    \end{frame}
+    \lattersubsectfalse
+}
+
+\AtBeginSubsection[] {
+    \begin{frame}<beamer>
+    \frametitle{Outline} 
+    \tableofcontents[currentsubsection]  
+    \end{frame}
+}
+
+\section{Fibbonacci recurrence}
+
+\begin{frame}{Fibbonacci recurrence}
+    \begin{itemize}
+        \item Fibonnacci numbers / Fibonnacci sequence
+        \item First two and subsequent numbers:
+        \begin{itemize}
+            \item $F_0 = 1$
+            \item $F_1 = 1$
+            \item $F_n = F_{n-1} + F_{n-2}$ {\scriptsize, when $n \geq 2$.}
+        \end{itemize}
+        \item Fibbonacci grows exponentially with $n$.
+        \item Prove that: $$0.5 \cdot 1.5^n \leq F_n \leq 2^n$$
+      \end{itemize}
+\end{frame}
+
+\begin{frame}{Fibbonacci recurrence}
+Proof by induction using $F_0 = 1, F_1 = 1, \ldots$:
+\begin{equation}\label{eq1}
+0.5 \cdot 1.5^n \leq F_n \leq 2^n
+\end{equation}
+    \begin{enumerate}
+        \item Base case: 
+        \begin{itemize}
+         \item $n=0, F_0=1: 0.5 \cdot 1.5^0 \leq 1 \leq 2^0 = 0.50 \leq 1 \leq 1$.
+         \item $n=1, F_1=1: 0.5 \cdot 1.5^1 \leq 1 \leq 2^1 = 0.75 \leq 1 \leq 2$.
+         \item $n=2, F_2=2: 0.5 \cdot 1.5^2 \leq 1 \leq 2^2 = 1.125 \leq 2 \leq 4$.
+         \\ $\vdots$
+        \end{itemize}
+        \item Assumption step:
+        \begin{itemize}
+            \item Assume \eqref{eq1} holds for all $n \leq k - 1$.
+        \end{itemize}
+        \item Induction step:
+        \begin{itemize}
+            \item Prove that \eqref{eq1} holds for all $n \leq k$.
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Fibbonacci recurrence}
+Proof by induction using $F_0 = 1, F_1 = 1, \ldots$:
+$$0.5 \cdot 1.5^n \leq F_n \leq 2^n$$
+    \begin{enumerate}[3]
+        \item Induction step:
+        \begin{itemize}
+            \item Prove that \eqref{eq1} holds for all $n \leq k$.
+            \begin{enumerate}[1)]
+             \item $ F_k \leq 2^k $ \\
+                $ F_k = F_{k-1} + F_{k-2} $ \\
+                $ F_k \leq 2^{k-1} + 2^{k-2} $ {\scriptsize (by assumption.)} \\
+                $ F_k = 2^{k-2} \cdot (2 + 1) $ \\
+                $ F_k = 2^{k-2} \cdot 3 $ \\
+                $ F_k \leq 2^{k-2} \cdot 4 $ \\
+                $ F_k = 2^{k-2} \cdot 2^2 $ \\
+                $ F_k = 2^k $ \\
+                \vspace{0.3cm}
+                $ F_n = \mathcal{O}(2^n) $
+            \end{enumerate}
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Fibbonacci recurrence}
+Proof by induction using $F_0 = 1, F_1 = 1, \ldots$:
+$$0.5 \cdot 1.5^n \leq F_n \leq 2^n$$
+    \begin{enumerate}[3]
+        \item Induction step:
+        \begin{itemize}
+            \item Prove that \eqref{eq1} holds for all $n \leq k$.
+            \begin{enumerate}[2)]
+             \item $ F_k \geq \frac{1}{2} \cdot 1.5^k $ \\
+                $ F_k = F_{k-1} + F_{k-2} $ \\
+                $ F_k \geq 1.5^{k-1} + 1.5^{k-2} $ {\scriptsize (by assumption.)} \\
+                $ F_k = 1.5^{k-2} \cdot (1.5 + 1) $ \\
+                $ F_k = 1.5^{k-2} \cdot 2.5 $ \\
+                $ F_k \geq 1.5^{k-2} \cdot 2.25 $ \\
+                $ F_k = 1.5^{k-2} \cdot 1.5^2 $ \\
+                $ F_k = 1.5^k $ \\
+                \vspace{0.3cm}
+                $ F_n = \Omega (1.5^n) $
+            \end{enumerate}
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Fibbonacci recurrence}
+    $$ 0.5 \cdot 1.5^n \leq F_n \leq 2^n $$
+    \vspace{0.2cm}
+    $$ F_n = \mathcal{O}(2^n) $$
+    $$ F_n = \Omega (1.5^n) $$
+    $$ is \ F_n = \Theta (\ ) \ ? $$
+\end{frame}
+
+\section{Homogeneous Recurrence Equations}
+
+\setbeamercovered{invisible}
+\begin{frame}{Example 1}
+    Solve the recurrence relation $a_n = a_{n-1} + 2 a_{n-2}$ with initial conditions $a_0 = 2$ and $a_1 = 7$.
+    \footnotesize
+    \begin{enumerate}[<+->]
+        \item Characteristic equation and its roots: \\
+        $ x^2 - x - 2 = 0 $ \\
+        $ (x + 1)(x - 2) = 0 $ \\
+        So, $x_1 = 2$ and $x_2 = -1$.
+        \item General form of the solution: \\
+        $ a_n = \alpha_1 2^n + \alpha_2 (-1)^n $.
+        \item Initial condition equations and their solutions: \\
+        $ a_0 = \alpha_1 + \alpha_2 = 2 $ \\
+        $ a_1 = \alpha_1 2 + \alpha_2 (-1) = 7 $ \\
+        So, $\alpha_1 = 3$ and $\alpha_2 = -1$.
+        \item Final answer: \\
+        $ a_n = 3 \cdot 2^n - (-1)^n $ is a solution.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Example 2}
+    What is the solution of the recurrence relation $a_n = -a_{n-1} + 4 a_{n-2} + 4 a_{n-3}$ with initial conditions $a_0 = 8$, $a_1 = 6$ and $a_2 = 26$.
+    \footnotesize
+    \begin{enumerate}[<+->]
+        \item Characteristic equation and its roots: \\
+        $ x^3 + x^2 - 4x - 4 = 0 $ \\
+        $ (x + 1)(x + 2)(x - 2) = 0 $ \\
+        So, $x_1 = -1$, $x_2 = -2$ and $x_3 = 2$.
+        \item General form of the solution: \\
+        $ a_n = \alpha_1 (-1)^n + \alpha_2 (-2)^n + \alpha_3 2^n $.
+        \item Initial condition equations and their solutions: \\
+        $ a_0 = \alpha_1 + \alpha_2 + \alpha_3 = 8 $ \\
+        $ a_1 = - \alpha_1 - 2 \alpha_2 + 2 \alpha_3 = 6 $ \\
+        $ a_2 = \alpha_1 + 4 \alpha_2 + 4 \alpha_3 = 26 $ \\
+        So, $\alpha_1 = 2$, $\alpha_2 = 1$ and $\alpha_3 = 5$.
+        \item Final answer: \\
+        $ a_n = 2 \cdot (-1)^n + (-2)^n + 5 \cdot 2^n $ is a solution.
+    \end{enumerate}
+\end{frame}
+
+\end{document}
