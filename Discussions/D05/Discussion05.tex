@@ -404,7 +404,7 @@ Let $c_1$ and $c_2$ be real numbers. Suppose that $r^2 - c_1 r - c_2 = 0$ has tw
 \setbeamercovered{transparent}
 \begin{frame}{Word problem}
     \begin{enumerate}[<+->]
-        \item Find a recurrence relation for the number of ways to climb n stairs if the person climbing the stairs can take one stair or two stairs at a time.
+        \item Find a recurrence relation for the number of ways to climb $n$ stairs if the person climbing the stairs can take one stair or two stairs at a time.
         \item What are the initial conditions?
         \item In how many ways can this person climb a flight of eight stairs?
     \end{enumerate}
@@ -414,7 +414,7 @@ Let $c_1$ and $c_2$ be real numbers. Suppose that $r^2 - c_1 r - c_2 = 0$ has tw
 \begin{frame}{Word problem}
     Let $S_n$ denote the number of ways of climbing the stairs.
     \begin{enumerate}[<+->]
-        \item Let $n \geq 3$.  The last step either was a single step, for which ther are $S_{n_1}$ possibilities, or a double step, for which there are $S_{n-2}$ possibilities.  The recurrence is: $ S_n = S_{n-1} + S_{n-2} $ for $n \geq 3$.
+        \item Let $n \geq 3$.  The last step either was a single step, for which there are $S_{n-1}$ possibilities, or a double step, for which there are $S_{n-2}$ possibilities.  The recurrence is: $ S_n = S_{n-1} + S_{n-2} $ for $n \geq 3$.
         \item Whe have $S_1 = 1$ and $S_2 = 2$.  You can take two stairs either directly or by taking a stair at a time.
         \item The recurrence gives the Fibonacci sequence:
         $$ 1,2,3,5,8,13,21,34,55,\ldots $$
