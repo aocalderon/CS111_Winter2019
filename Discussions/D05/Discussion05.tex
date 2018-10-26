@@ -398,6 +398,26 @@ Let $c_1$ and $c_2$ be real numbers. Suppose that $r^2 - c_1 r - c_2 = 0$ has tw
     \end{enumerate}
 \end{frame}
 
+\begin{frame}{Example 3}
+    Find the solution to the recurrence relation $a_n = 6a_{n-1} - 11 a_{n-2} + 6 a_{n-3}$ with the initial conditions $a_0 = 2$, $a_1 = 5$ and $a_2 = 15$.
+    \footnotesize
+    \begin{enumerate}[<+->]
+        \item Characteristic equation and its roots: \\
+        $ x^3 - 6x^2 + 11x - 6 = 0 $ \\
+        $ (x - 1)(x - 2)(x - 3) = 0 $ \\
+        So, $x_1 = 1$, $x_2 = 2$ and $x_3 = 3$.
+        \item General form of the solution: \\
+        $ a_n = \alpha_1 1^n + \alpha_2 2^n + \alpha_3 3^n $.
+        \item Initial condition equations and their solutions: \\
+        $ a_0 = \alpha_1 +   \alpha_2 +   \alpha_3 = 2 $ \\
+        $ a_1 = \alpha_1 + 2 \alpha_2 + 3 \alpha_3 = 5 $ \\
+        $ a_2 = \alpha_1 + 4 \alpha_2 + 9 \alpha_3 = 15 $ \\
+        So, $\alpha_1 = 1$, $\alpha_2 = -1$ and $\alpha_3 = 2$.
+        \item Final answer: \\
+        $ a_n = 1 - 2^n + 2 \cdot 3^n $ is a solution.
+    \end{enumerate}
+\end{frame}
+
 \section{Word problem}
 
 \setbeamercovered{transparent}
