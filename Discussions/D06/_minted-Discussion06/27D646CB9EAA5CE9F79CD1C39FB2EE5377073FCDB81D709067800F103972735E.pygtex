@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nc}{PrintXs}\PYG{o}{(}\PYG{n}{n}\PYG{k}{:} \PYG{k+kt}{integer}\PYG{o}{)}
+    \PYG{k}{if}\PYG{o}{(}\PYG{n}{n} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{3}\PYG{o}{)}
+        \PYG{n}{print}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}X\PYGZdq{}}\PYG{o}{)}
+    \PYG{k}{else}
+        \PYG{n+nc}{PrintXs}\PYG{o}{(}\PYG{n}{n}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{o}{)}
+        \PYG{n+nc}{PrintXs}\PYG{o}{(}\PYG{n}{n}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{o}{)}
+        \PYG{n+nc}{PrintXs}\PYG{o}{(}\PYG{n}{n}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{o}{)}
+        \PYG{k}{for}\PYG{o}{(}\PYG{n}{i} \PYG{k}{\PYGZlt{}\PYGZhy{}} \PYG{l+m+mi}{1} \PYG{n}{to} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{n}\PYG{o}{)}
+            \PYG{n}{print}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}X\PYGZdq{}}\PYG{o}{)}
+\end{Verbatim}

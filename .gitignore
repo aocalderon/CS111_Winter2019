@@ -6,4 +6,6 @@
 *.ps
 *.snm
 *.toc
+*.vrb
 *.synctex.gz
+_minted-*/*

@@ -5,8 +5,6 @@
 
 \usepackage{hyperref}
 
-%\usepackage{minted}
-
 \usepackage{animate}
 
 \usepackage{graphicx}
@@ -21,6 +19,7 @@
 
 \usepackage{enumerate}
 
+\usepackage{minted}
 
 \newcommand\blfootnote[1]{%
 
@@ -301,27 +300,181 @@
 
 \begin{frame}{Divide and Conquer}
     \centering
-    \includegraphics[width=.85\linewidth]{a.PNG}
+    \begin{theorem}
+        Let $a \geq 0$, $b > 0$, $c > 0$ and $d \geq 0$.  If $T(n)$ satisfies the recurrence then
+        $$ T(n) = a \cdot T \Big(\frac{n}{b}\Big) + c \cdot n^d $$
+    \end{theorem}
+    
+    $T(n) =$ 
+    \left\{
+    \begin{tabular}{l r r}
+        $\Theta (n^{\log_b a})$ & \hspace{1cm} & $a > b^d$ \\
+        $\Theta (n^d \log n)$   & \hspace{1cm} & $a = b^d$ \\
+        $\Theta (n^d)$          & \hspace{1cm} & $a < b^d$ 
+    \end{tabular}
 \end{frame}
+
 \begin{frame}{Divide and Conquer}
     \centering
-    \includegraphics[width=.5\linewidth]{a0.PNG}
+    \begin{itemize}
+        \item Give the asymptotic value (using the $\Theta$-notation) for the number of letters that will be printed by the following algorithms.  You need to provide an appropriate recurrence equation and its solution.
+    \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]{Divide and Conquer}
+    \begin{center}
+    \begin{minipage}{0.5\textwidth}
+    \begin{minted}[fontsize=\scriptsize, 
+		   linenos,
+		   numbersep=1pt,
+		   frame=lines,
+		   framesep=3mm]{scala}
+def PrintXs(n: integer)
+    if(n < 3)
+        print("X")
+    else
+        PrintXs(n/3)
+        PrintXs(n/3)
+        PrintXs(n/3)
+        for(i <- 1 to 2*n)
+            print("X")
+    \end{minted}
+    \end{minipage}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Divide and Conquer}
+    \begin{center}
+    \begin{minipage}{0.5\textwidth}
+    \begin{minted}[fontsize=\scriptsize, 
+		   linenos,
+		   numbersep=1pt,
+		   frame=lines,
+		   framesep=3mm]{scala}
+def PrintXs(n: integer)
+    if(n < 3)
+        print("X")
+    else
+        PrintXs(n/3)
+        PrintXs(n/3)
+        PrintXs(n/3)
+        for(i <- 1 to 2*n)
+            print("X")
+    \end{minted}
+    \end{minipage}
+    \end{center}
+    
+    \begin{itemize}
+        \item We have 3 recursive calls, each with parameter $\frac{n}{3}$.
+        \item Recurrence is $X(n) = 3 \cdot X \Big(\frac{n}{3}\Big) + 2 \cdot n$.
+        \item If $a = 3$, $b = 3$, $c = 2$ and $d = 1$ then $a = b^d$ and $\Theta (n^d \log n)$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Divide and Conquer}
+    \begin{center}
+    \begin{minipage}{0.5\textwidth}
+    \begin{minted}[fontsize=\scriptsize, 
+		   linenos,
+		   numbersep=1pt,
+		   frame=lines,
+		   framesep=3mm]{scala}
+def PrintYs(n: integer)
+    if(n < 2)
+        print("Y")
+    else
+        for(i <- 1 to 16)
+            PrintYs(n/2)
+        for(i <- 1 to n^3)
+            print("Y")
+    \end{minted}
+    \end{minipage}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Divide and Conquer}
+    \begin{center}
+    \begin{minipage}{0.5\textwidth}
+    \begin{minted}[fontsize=\scriptsize, 
+		   linenos,
+		   numbersep=1pt,
+		   frame=lines,
+		   framesep=3mm]{scala}
+def PrintYs(n: integer)
+    if(n < 2)
+        print("Y")
+    else
+        for(i <- 1 to 16)
+            PrintYs(n/2)
+        for(i <- 1 to n^3)
+            print("Y")
+    \end{minted}
+    \end{minipage}
+    \end{center}
+    
+    \begin{itemize}
+        \item We have 16 recursive calls, each with parameter $\frac{n}{2}$.
+        \item Recurrence is $X(n) = 16 \cdot X \Big(\frac{n}{2}\Big) + n^3$.
+        \item If $a = 16$, $b = 2$, $c = 1$ and $d = 3$ then $a > b^d$ and $\Theta (n^{\log_2 16})$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Divide and Conquer}
+    \begin{center}
+    \begin{minipage}{0.5\textwidth}
+    \begin{minted}[fontsize=\scriptsize, 
+		   linenos,
+		   numbersep=1pt,
+		   frame=lines,
+		   framesep=3mm]{scala}
+def PrintZs(n: integer)
+    if(n < 3)
+        print("Z")
+    else
+        PrintZs(n/3)
+        PrintZs(n/3)
+        for(i <- 1 to 7*n)
+            print("Z")
+    \end{minted}
+    \end{minipage}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Divide and Conquer}
+    \begin{center}
+    \begin{minipage}{0.5\textwidth}
+    \begin{minted}[fontsize=\scriptsize, 
+		   linenos,
+		   numbersep=1pt,
+		   frame=lines,
+		   framesep=3mm]{scala}
+def PrintZs(n: integer)
+    if(n < 3)
+        print("Z")
+    else
+        PrintZs(n/3)
+        PrintZs(n/3)
+        for(i <- 1 to 7*n)
+            print("Z")
+    \end{minted}
+    \end{minipage}
+    \end{center}
+    \begin{itemize}
+        \item We have 2 recursive calls, each with parameter $\frac{n}{3}$.
+        \item Recurrence is $X(n) = 2 \cdot X \Big(\frac{n}{3}\Big) + 7 \cdot n$.
+        \item If $a = 2$, $b = 3$, $c = 7$ and $d = 1$ then $a < b^d$ and $\Theta (n)$.
+    \end{itemize}    
+\end{frame}
+
 \begin{frame}{Divide and Conquer}
     \centering
-    \includegraphics[width=.5\linewidth]{a1.PNG}
+    \includegraphics[trim={0 0 0 2.5cm}, clip, width=.375\linewidth]{a1.PNG}
+    \includegraphics[width=.375\linewidth]{a2.PNG}
 \end{frame}
+
 \begin{frame}{Divide and Conquer}
     \centering
-    \includegraphics[width=.5\linewidth]{a2.PNG}
-\end{frame}
-\begin{frame}{Divide and Conquer}
-    \centering
-    \includegraphics[width=.95\linewidth]{c.PNG}
-\end{frame}
-\begin{frame}{Divide and Conquer}
-    \centering
-    \includegraphics[width=.95\linewidth]{e.PNG}
+    \includegraphics[width=.7\linewidth]{e.PNG}
 \end{frame}
 
 \section{Inclusion-Exclusion }
