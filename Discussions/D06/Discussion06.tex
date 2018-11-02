@@ -72,7 +72,7 @@
 \makeatother
 
 \begin{document}
-\title[Discussion 6 - Non-homogeneous Recurrences,  Divide and Conquer \& Inclusion - Exclusion]{CS/MATH 111, Discrete Structures - Fall 2018. \\ Discussion 6 - Non-homogeneous Recurrences,  Divide and Conquer \& Inclusion - Exclusion }
+\title[Discussion 6]{CS/MATH 111, Discrete Structures - Fall 2018. \\ Discussion 6 - Non-homogeneous Recurrences,  Divide and Conquer \& Inclusion - Exclusion }
 \author[CS111]{Andres, Sara, Elena}
 \institute[Fall'18]{University of California, Riverside}
 \makebeamertitle
@@ -286,8 +286,8 @@
         \begin{enumerate}[3]
             \item Initial condition equations and their solutions:
                 \begin{tabular}{l l l}
-                    $f_0 = $ & $\alpha_1 \cdot 2^0 + \alpha_2 \cdot 0 \cdot 2^0 + \frac{50}{9} \cdot 5^0$ & $= \alpha_1 + \frac{50}{9} = 1$ \\
-                    $f_1 = $ & $\alpha_1 \cdot 2^1 + \alpha_2 \cdot 1 \cdot 2^1 + \frac{50}{9} \cdot 5^1$ & $= 2 \cdot \alpha_1 + 2 \cdot \alpha_2 + 5 \cdot \frac{50}{9} = 2 $ \\
+                    \rule{0pt}{2ex}   $f_0 = $ & $\alpha_1 \cdot 2^0 + \alpha_2 \cdot 0 \cdot 2^0 + \frac{50}{9} \cdot 5^0$ & $= \alpha_1 + \frac{50}{9} = 1$ \\ 
+                    \rule{0pt}{2ex}   $f_1 = $ & $\alpha_1 \cdot 2^1 + \alpha_2 \cdot 1 \cdot 2^1 + \frac{50}{9} \cdot 5^1$ & $= 2 \cdot \alpha_1 + 2 \cdot \alpha_2 + 5 \cdot \frac{50}{9} = 2 $ 
                 \end{tabular}
                 where $\alpha_1 = -\frac{41}{9} $ and $ \alpha_2 = -\frac{25}{3}$.
             \item[4] Final answer:
@@ -300,7 +300,7 @@
 
 \begin{frame}{Divide and Conquer}
     \centering
-    \begin{theorem}
+    \begin{theorem}\label{theo:master}
         Let $a \geq 0$, $b > 0$, $c > 0$ and $d \geq 0$.  If $T(n)$ satisfies the recurrence then
         $$ T(n) = a \cdot T \Big(\frac{n}{b}\Big) + c \cdot n^d $$
     \end{theorem}
@@ -491,12 +491,12 @@ def PrintZs(n: integer)
 \begin{frame}{Inclusion-Exclusion}
     \centering
     \begin{tabular}{r c l}
-    Us citizens:                & $\mid A \mid$                & $= \frac{X}{2}$    \\
-    Mexican citizen:            & $\mid B \mid$                & $= 10$             \\
-    Canadian citizen:           & $\mid C \mid$                & $= 17$             \\
-    US-Mexican citizen:         & $\mid A \cap B \mid$         & $= 4$              \\
-    US-Canadian citizen:        & $\mid A \cap C \mid$         & $= 5$              \\
-    Canadian-Mexican:           & $\mid B \cap C \mid$         & $= 6$              \\
+    US citizens:                & $\mid A \mid$                & $= \frac{X}{2}$    \\
+    Mexican citizens:           & $\mid B \mid$                & $= 10$             \\
+    Canadian citizens:          & $\mid C \mid$                & $= 17$             \\
+    US-Mexican citizens:        & $\mid A \cap B \mid$         & $= 4$              \\
+    US-Canadian citizens:       & $\mid A \cap C \mid$         & $= 5$              \\
+    Canadian-Mexican citizens:  & $\mid B \cap C \mid$         & $= 6$              \\
     Citizens of all countries:  & $\mid A \cap B \cap C \mid$  & $= 2$              \\
     \end{tabular}
 
