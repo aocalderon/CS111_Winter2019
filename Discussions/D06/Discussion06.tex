@@ -96,9 +96,13 @@
 
 \section{Non-homogeneous recurrence}
 
-\begin{frame}{Non-homogeneous recurrence}
-    \begin{theorem}\label{theo:1}%\footnote{\scriptsize Proof available at [Rosen, 2015. pg 515].}
-    $$f_n = f_n^{'} + f_n^{''}$$
+\begin{frame}{Non-homogeneous recurrence\footnote{\scriptsize Proof available at [Rosen, 2015. pg 521].}}
+    \begin{theorem}\label{theo:1}
+    {\Large $$f_n = f_n^{'} + f_n^{''}$$}
+    
+    If $\{f_n^{''}\}$ is a particular solution of the non-homogeneous linear recurrence relation with constant coefficients: 
+    $$ f_n = c_1 \cdot f_{n-1} + c_2 \cdot f_{n-2} + \cdots + c_k \cdot f_{n-k} + g(n) $$
+    then every solution is of the form $\{f_n^{'} + f_n^{''}\}$, where $\{f_n^{'}\}$ is a solution of the associated homogeneous recurrence relation.
     \end{theorem}
 \end{frame}
 
@@ -164,7 +168,7 @@
             \begin{equation}\tag{3}
                 p_0 = - \frac{6}{2} =  -2
             \end{equation}
-        \item Finally $(3)$ in $(2)$:
+        \item Finally, $(3)$ in $(2)$:
         $$ f_n^{''} = -2 $$
     \end{itemize}
 \end{frame}
@@ -184,7 +188,7 @@
             \begin{equation}\tag{1}
                 f_n = 3 \cdot f_{n-1} + f_{n-2} + 3 \cdot 2^n
             \end{equation}
-        \item $g(n) = 3 \cdot 2^n$:
+        \item $g(n) = 3 \cdot 2^n$, so:
             \begin{equation}\tag{2}
                 f_n^{''} = p_0 \cdot 2^n
             \end{equation}
@@ -193,7 +197,7 @@
 
 \begin{frame}{Non-homogeneous recurrence}
    \begin{itemize}
-        \item $(2)$ in $(1)$:
+        \item Plug $(2)$ in $(1)$ becomes:
             $$ p_0 \cdot 2^n = 3 \cdot p_0 \cdot 2^{n-1} + p_0 \cdot 2^{n-2} + 3 \cdot 2^n $$
             $$ p_0 \cdot 2^n = 2^{n-2}( 3 \cdot p_0 \cdot 2^{1} + p_0 \cdot 2^{0} + 3 \cdot 2^2) $$
             $$ p_0 \cdot 2^2 = 3 \cdot p_0 \cdot 2 + p_0 + 3 \cdot 4 $$
@@ -206,7 +210,7 @@
 
 \begin{frame}{Non-homogeneous recurrence}
    \begin{itemize}
-        \item $(2)$ in $(1)$:
+        \item Plug $(2)$ in $(1)$ becomes:
             $$ p_0 \cdot 2^n = 3 \cdot p_0 \cdot 2^{n-1} + p_0 \cdot 2^{n-2} + 3 \cdot 2^n $$
             $$ p_0 \cdot 2^n = 2^{n-2}( 3 \cdot p_0 \cdot 2^{1} + p_0 \cdot 2^{0} + 3 \cdot 2^2) $$
             $$ p_0 \cdot 2^2 = 3 \cdot p_0 \cdot 2 + p_0 + 3 \cdot 4 $$
@@ -259,18 +263,14 @@
             \begin{equation}\tag{2}
                 f_n^{''} = p_0 \cdot 5^n
             \end{equation}
-        \item $(2)$ in $(1)$:
+        \item Plug $(2)$ in $(1)$ becomes:
             $$ p_0 \cdot 5^n = 4 \cdot p_0 \cdot 5^{n-1} - 4 \cdot p_0 \cdot 5^{n-2} + 2 \cdot 5^n $$
             \begin{equation}\tag{3}
-                p_0 = 2
+                p_0 = \frac{50}{9}
             \end{equation}
         \item Finally, $(3)$ in $(2)$:
-            $$ f_n^{''} = 2 \cdot 5^n $$
+            $$ f_n^{''} = \frac{50}{9} \cdot 5^n $$
     \end{itemize}
-
-    %\\$A_{0}=\alpha_1+2=1$
-    %\\$A_{1}=2\alpha_1+2\alpha_2+10=2$
-    %\\$\alpha_1=-1 ,\alpha_2=-3$
 \end{frame}
 
 \begin{frame}{Non-homogeneous recurrence}
@@ -282,13 +282,15 @@
     
     \begin{itemize}
         \item $ f_n^{'} = \alpha_1 \cdot 2^n + \alpha_2 \cdot n \cdot 2^n $
-        \item $ f_n^{''} = 2 \cdot 5^n $
+        \item $ f_n^{''} = \frac{50}{9} \cdot 5^n $
+        \item $ f_n = \alpha_1 \cdot 2^n + \alpha_2 \cdot n \cdot 2^n + \frac{50}{9} \cdot 5^n $
         \begin{enumerate}[3]
             \item Initial condition equations and their solutions:
-                $$ f_0 = \alpha_1 \cdot 2^0 + \alpha_2 \cdot 0 \cdot 2^0 + 2 \cdot 5^0  = \alpha_1 + 2 = 1 $$
-                $$ f_1 = \alpha_1 \cdot 2^1 + \alpha_2 \cdot 1 \cdot 2^1 + 2 \cdot 5^1  = 2 \cdot \alpha_1 + 2 \cdot \alpha_2 + 10 = 2 $$
-                $$ \alpha_1 = -1 $$
-                $$ \alpha_2 = -3 $$
+                \begin{tabular}{l l l}
+                    $f_0 = $ & $\alpha_1 \cdot 2^0 + \alpha_2 \cdot 0 \cdot 2^0 + \frac{50}{9} \cdot 5^0$ & $= \alpha_1 + \frac{50}{9} = 1$ \\
+                    $f_1 = $ & $\alpha_1 \cdot 2^1 + \alpha_2 \cdot 1 \cdot 2^1 + \frac{50}{9} \cdot 5^1$ & $= 2 \cdot \alpha_1 + 2 \cdot \alpha_2 + 5 \cdot \frac{50}{9} = 2 $ \\
+                \end{tabular}
+                where $\alpha_1 = -\frac{41}{9} $ and $ \alpha_2 = -\frac{25}{3}$.
             \item[4] Final answer:
                 $$ \vdots $$
         \end{enumerate}
