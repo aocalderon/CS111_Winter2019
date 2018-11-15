@@ -1,0 +1,205 @@
+\documentclass{beamer}
+
+\usepackage{hyperref}
+
+%\usepackage{minted}
+
+\usepackage{animate}
+
+\usepackage{graphicx}
+
+\def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\put(#1,#2){#3}}}
+
+\usepackage{color}
+
+\usepackage{tikz}
+
+\usepackage{amssymb}
+
+\usepackage{enumerate}
+
+
+\newcommand\blfootnote[1]{%
+
+  \begingroup
+
+  \renewcommand\thefootnote{}\footnote{#1}%
+
+  \addtocounter{footnote}{-1}%
+
+  \endgroup
+
+}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+
+ % this default might be overridden by plain title style
+
+ \newcommand\makebeamertitle{\frame{\maketitle}}%
+
+ % (ERT) argument for the TOC
+
+ \AtBeginDocument{%
+
+   \let\origtableofcontents=\tableofcontents
+
+   \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+
+   \def\gobbletableofcontents#1{\origtableofcontents}
+
+ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+
+\usetheme{Malmoe}
+
+% or ...
+
+\useoutertheme{infolines}
+
+\addtobeamertemplate{headline}{}{\vskip2pt}
+
+
+
+\setbeamercovered{transparent}
+
+% or whatever (possibly just delete it)
+
+\makeatother
+
+\begin{document}
+\title[Discussion 8]{CS/MATH 111, Discrete Structures - Fall 2018. \\ Discussion 8 - Graphs}
+\author[CS111]{Andres, Sara, Elena}
+\institute[Fall'18]{University of California, Riverside}
+\makebeamertitle
+\newif\iflattersubsect
+
+\AtBeginSection[] {
+    \begin{frame}<beamer>
+    \frametitle{Outline} 
+    \tableofcontents[currentsection]  
+    \end{frame}
+    \lattersubsectfalse
+}
+
+\AtBeginSubsection[] {
+    \begin{frame}<beamer>
+    \frametitle{Outline} 
+    \tableofcontents[currentsubsection]  
+    \end{frame}
+}
+
+\section{Euler tour}
+
+\begin{frame}{Euler tour}
+    \begin{itemize}
+        \item An Euler tour (or Eulerian tour) in an undirected graph is a tour that traverses each edge of the graph exactly once. 
+        \item Graphs that have an Euler tour are called Eulerian. 
+      \end{itemize}
+\end{frame}
+
+\begin{frame}{Euler tour}
+Necessary and sufficient conditions:
+    \begin{itemize}
+        \item An undirected graph has a closed Euler tour iff it is connected and each vertex has an even degree. 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Euler tour}
+   \begin{itemize}
+          \item  So this graph is not Eulerian:
+      \end{itemize}
+     \centering \includegraphics[width=.7\linewidth]{p1.jpg}
+\end{frame}
+
+\section{Hamiltonian Cycle}
+
+\begin{frame}{Hamiltonian Cycle}
+   \begin{itemize}
+        \item Hamiltonian Cycle is a graph cycle (i.e., closed loop) through a graph that visits each node exactly once 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Hamiltonian Cycle}
+    \begin{theorem}
+        If G is a simple graph on n vertices, $n\geq 3$,and $d(v)+d(w)\geq n$ whenever v and w are not adjacent, then G has a Hamilton cycle. 
+    \end{theorem}
+\end{frame}
+
+\begin{frame}{Hamiltonian Cycle}
+    \begin{itemize}
+        \item The graph does not have Hamiltonian cycle.
+    \end{itemize}
+    \centering \includegraphics[width=.7\linewidth]{p1.jpg}
+\end{frame}
+
+\section{Vertex Coloring}
+
+\begin{frame}{Vertex Coloring}
+    \begin{itemize}
+        \item The chromatic number of a graph  is the smallest number of colors needed to color the vertices so that no two adjacent vertices share the same color.
+        \item Hardness: A very hard problem(an NP-Complete problem).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Vertex Coloring}
+    \centering \includegraphics[width=.7\linewidth]{p2.PNG}
+\end{frame}
+
+\begin{frame}{Vertex Coloring}
+    \centering \includegraphics[width=.7\linewidth]{p3.PNG}
+\end{frame}
+
+\begin{frame}{Vertex Coloring}
+    For certain classes of graphs, we can easily compute the chromatic number. For example, the chromatic number of $K_n$ is $n$, for any $n$. Notice that we have to argue two separate things to establish that this is its chromatic number:
+    \begin{itemize}
+        \item $K_n$ can be colored with $n$ colors.
+        \item $K_n$ cannot be colored with less than $n$ colors.
+    \end{itemize}
+    For $K_n$, both of these facts are fairly obvious. Assigning a diﬀerent color to each vertex will always result in a well-formed coloring (though it may be a waste of colors). Since each vertex in $K_n$ is adjacent to every other vertex, no two can share a color. So fewer than $n$ colors can’t possibly work.
+\end{frame}
+
+\begin{frame}{Vertex Coloring}
+    \centering \includegraphics[width=.7\linewidth]{p4.jpg}
+\end{frame}
+
+\section{Bipartite graph}
+
+\begin{frame}{Bipartite graph}
+    \begin{itemize}
+        \item A bipartite graph, also called a bigraph, is a set of graph vertices decomposed into two disjoint sets such that no two graph vertices within the same set are adjacent.
+        \item Bipartite graphs are equivalent to two-colorable graphs. 
+        \item All acyclic graphs are bipartite. 
+        \item A cyclic graph is bipartite iff all its cycles are of even length
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Bipartite graph}
+    \centering \includegraphics[width=.7\linewidth]{p5.PNG}
+\end{frame}
+
+\section{Perfect matching}
+
+\begin{frame}{Perfect matching}
+A perfect matching of a graph is a matching (i.e., an independent edge set) in which every vertex of the graph is incident to exactly one edge of the matching. 
+\\A perfect matching is therefore a matching containing $\frac{n}{2}$ edges (the largest possible), meaning perfect matchings are only possible on graphs with an even number of vertices.
+\end{frame}
+
+\begin{frame}{Perfect matching}
+ Hall’s Theorem: Let G = (X,Y ) be a bipartite graph. Then X has a perfect macthing into Y if and only if for all $T \subseteq X$, the inequality $|T| \leq |N(T)|$ holds. Where N(T) is the set of all neighbors of the vertices in T. In other words, $y \in  Y$ is an element of N(T) if and only if there is a vertex $x \in  T$ so that xy is an edge.
+\end{frame}
+
+\begin{frame}{Perfect matching}
+    \begin{flushleft}
+        You are given two bipartite graph G and H below. For each graph determine whether it has a perfect matching. Justify your answer, either by listing the edges that are in the matching or use Hall's Theorem to show that the graph does not have a perfect matching.
+    \end{flushleft}
+    \centering \includegraphics[width=.7\linewidth]{p6.jpg}
+\end{frame}
+
+\begin{frame}{Perfect matching}
+    \centering \includegraphics[width=.7\linewidth]{p7.PNG}
+\end{frame}
+
+\end{document}
