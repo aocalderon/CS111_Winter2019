@@ -549,43 +549,6 @@
     \end{itemize}
 \end{frame}
 
-\section{Bipartite graph}
-
-\begin{frame}{Bipartite graph}
-    \begin{itemize}
-        \item A bipartite graph, also called a bigraph, is a set of graph vertices decomposed into two disjoint sets such that no two graph vertices within the same set are adjacent.
-        \item Bipartite graphs are equivalent to two-colorable graphs. 
-        \item All acyclic graphs are bipartite. 
-        \item A cyclic graph is bipartite iff all its cycles are of even length
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Bipartite graph}
-    \centering \includegraphics[width=.7\linewidth]{p5.PNG}
-\end{frame}
-
-\section{Perfect matching}
-
-\begin{frame}{Perfect matching}
-A perfect matching of a graph is a matching (i.e., an independent edge set) in which every vertex of the graph is incident to exactly one edge of the matching. 
-\\A perfect matching is therefore a matching containing $\frac{n}{2}$ edges (the largest possible), meaning perfect matchings are only possible on graphs with an even number of vertices.
-\end{frame}
-
-\begin{frame}{Perfect matching}
- Hall’s Theorem: Let G = (X,Y ) be a bipartite graph. Then X has a perfect macthing into Y if and only if for all $T \subseteq X$, the inequality $|T| \leq |N(T)|$ holds. Where N(T) is the set of all neighbors of the vertices in T. In other words, $y \in  Y$ is an element of N(T) if and only if there is a vertex $x \in  T$ so that xy is an edge.
-\end{frame}
-
-\begin{frame}{Perfect matching}
-    \begin{flushleft}
-        You are given two bipartite graph G and H below. For each graph determine whether it has a perfect matching. Justify your answer, either by listing the edges that are in the matching or use Hall's Theorem to show that the graph does not have a perfect matching.
-    \end{flushleft}
-    \centering \includegraphics[width=.7\linewidth]{p6.jpg}
-\end{frame}
-
-\begin{frame}{Perfect matching}
-    \centering \includegraphics[width=.7\linewidth]{p7.PNG}
-\end{frame}
-
 \section*{Reference}
 
 \begin{frame}{Reference}
