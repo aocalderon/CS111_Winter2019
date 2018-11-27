@@ -78,7 +78,7 @@
 \makeatother
 
 \begin{document}
-\title[Discussion 9]{CS/MATH 111, Discrete Structures - Fall 2018. \\ Discussion 9 - Graphs}
+\title[Discussion 9]{CS/MATH 111, Discrete Structures - Fall 2018. \\ Discussion 9 - Graphs and Tree introduction}
 \author[CS111]{Andres, Sara, Elena}
 \institute[Fall'18]{University of California, Riverside}
 \makebeamertitle
@@ -134,39 +134,6 @@ A perfect matching of a graph is a matching (i.e., an independent edge set) in w
 
 \begin{frame}{Perfect matching}
     \centering \includegraphics[width=.7\linewidth]{p7.png}
-\end{frame}
-
-\section{Trees}
-
-\begin{frame}{Trees}
-    \begin{lemma}
-        It T is a tree, and has n vertices, then its number of edges is $m = n - 1$.
-    \end{lemma}
-\end{frame}
-
-\begin{frame}{Proof (by induction)}
-    \begin{enumerate}
-        \item Basis step: 
-        \begin{itemize}
-            \item When $n = 1$, a tree with $n = 1$ vertex has no edges.  Indeed, $n -1 = 0$.
-        \end{itemize}
-        \item Assumption step:
-        \begin{itemize}
-            \item Let's assume that every tree with $k$ vertices has $k - 1$ edges, where $k$ is a positive integer.
-        \end{itemize}
-    \end{enumerate}
-\end{frame}
-
-\begin{frame}{Proof (cont.)}
-    \begin{enumerate}[3]
-        \item Inductive step: 
-        \begin{itemize}
-            \item Suppose that a tree $T$ has $k + 1$ vertices and that $v$ is a leaf\footnote{{\tiny It must exist because the tree is finite}} of $T$.  Let $w$ be the parent of $v$. 
-            \item Remove $v$ from $T$ and the edge connecting $w$ to $v$. It produces a tree $T^\prime$ with $k$ vertices\footnote{ {\tiny $T^\prime$is still connected and has no simple circuits.}}. 
-            \item By the assumption hypothesis, $T^\prime$ has $k - 1$ edges. It follows that $T$ has $k$ edges because it has one more edge than $T^\prime$ (the edge connecting $v$ and $w$).
-        \end{itemize}
-    \end{enumerate}
-    \flushright {\footnotesize $\blacksquare$}
 \end{frame}
 
 \section{Planar graphs}
@@ -333,8 +300,46 @@ A perfect matching of a graph is a matching (i.e., an independent edge set) in w
 
 \begin{frame}{Euler's Formula}
     \begin{corollary}
-        If G is a connected planar graph with m edges and n vertices, and $n \geq 3$ and no circuits of length $3$, then $m \leq 2 \cdot n - 4$.
+        If G is a connected planar graph with m edges and n vertices, and $n \geq 3$ and no circuits of length $3$, then $m \leq 2n - 4$.
     \end{corollary}
+\end{frame}
+
+\begin{frame}{Proof}
+    \begin{itemize}[<+->]
+        \item $G$ divides the plane into regions, say $r$ of them.
+        \item The degree of each region is at least four\footnote{{\tiny no multiple edges, no loops and no simple cycles of length 3}}.
+        \item Note that the sum of the degrees of the regions is exactly twice the number of edges in the graph\footnote{{\tiny because each edge occurs on the boundary of a region exactly twice}}.
+        \item Because each region has degree greater than or equal to 4, it follows that: $ 2m = \sum deg(R) \geq 4r $.
+        \item Hence, $2m \geq 4r$ or simply $r \leq \frac{m}{2}$. Using Euler's formula, we obtain $m - n + 2 \leq \frac{m}{2}$.
+        \item It follows that $\frac{m}{2} \leq n - 2$. This shows that $m \leq 2n - 4$. \\ \hspace{10.5cm} {\tiny $\blacksquare$}
+    \end{itemize}
+\end{frame}
+
+\section{Trees}
+
+\begin{frame}{Trees}
+    \begin{lemma}
+        It T is a tree, and has n vertices, then its number of edges is $m = n - 1$.
+    \end{lemma}
+\end{frame}
+
+\begin{frame}{Proof}
+    \begin{enumerate}[<+->]
+        \item Basis step: 
+        \begin{itemize}
+            \item When $n = 1$, a tree with $n = 1$ vertex has no edges.  Indeed, $n -1 = 0$.
+        \end{itemize}
+        \item Assumption step:
+        \begin{itemize}
+            \item Let's assume that every tree with $k$ vertices has $k - 1$ edges, where $k$ is a positive integer.
+        \end{itemize}
+        \item Inductive step: 
+        \begin{itemize}
+            \item Suppose that a tree $T$ has $k + 1$ vertices and that $v$ is a leaf\footnote{{\tiny It must exist because the tree is finite}} of $T$.  Let $w$ be the parent of $v$. 
+            \item Remove $v$ from $T$ and the edge connecting $w$ to $v$. It produces a tree $T^\prime$ with $k$ vertices\footnote{ {\tiny $T^\prime$is still connected and has no simple circuits.}}. 
+            \item By the assumption hypothesis, $T^\prime$ has $k - 1$ edges. It follows that $T$ has $k$ edges because it has one more edge than $T^\prime$ (the edge connecting $v$ and $w$). \\ \hspace{10cm} {\tiny $\blacksquare$}
+        \end{itemize}
+    \end{enumerate}
 \end{frame}
 
 \section*{Reference}
