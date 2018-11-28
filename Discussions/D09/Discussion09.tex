@@ -16,6 +16,7 @@
 \usepackage{color}
 
 \usepackage{tikz}
+\usetikzlibrary{graphs,graphs.standard}
 
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -293,7 +294,7 @@ A perfect matching of a graph is a matching (i.e., an independent edge set) in w
 \end{frame}
 
 \begin{frame}{Euler's Formula}
-    \begin{theorem}[EULER'S FORMULA]\label{theo:euler}
+    \begin{theorem}
          Let $G$ be a connected planar simple graph with $e$ edges and $v$ vertices. Let $r$ be the number of regions in a planar representation of $G$. Then $r = e - v + 2$.
     \end{theorem}
 \end{frame}
@@ -317,6 +318,38 @@ A perfect matching of a graph is a matching (i.e., an independent edge set) in w
 
 \section{Kuratowski's theorem}
 
+\begin{frame}{Kuratowski's theorem}
+    \begin{theorem}
+        A graph is nonplanar if and only if it contains a subgraph homeomorphic to $K_{3,3}$ or $K_5$.
+    \end{theorem}
+    \begin{figure}
+    \begin{tikzpicture}[scale=0.5]
+        \tikzstyle{every node}=[shape=circle]
+        \node (a) at (1,1)  {a};
+        \node (b) at (1,6)  {b};
+        \node (c) at (6,1)  {c};
+        \node (d) at (6,6)  {d};
+        \node (e) at (11,1) {e};
+        \node (f) at (11,6) {f};
+        
+        \draw (a) -- (b)
+        (a) -- (d)
+        (a) -- (f)
+        (c) -- (b)
+        (c) -- (d)
+        (c) -- (f)
+        (e) -- (b)
+        (e) -- (d)
+        (e) -- (f)
+        ;
+    \end{tikzpicture}
+    \begin{tikzpicture}
+        \graph { subgraph K_n [n=5,clockwise,radius=2cm] };
+    \end{tikzpicture}
+    \end{figure}
+\end{frame}
+
+%% G
 \begin{frame}{Examples}
     Determine if the following graph is planar.  Justify your answer.
     \centering
@@ -351,6 +384,154 @@ A perfect matching of a graph is a matching (i.e., an independent edge set) in w
     \end{figure}
 \end{frame}
 
+\begin{frame}{Examples}
+    Determine if the following graph is planar.  Justify your answer.
+    \centering
+    \begin{figure}
+        \begin{tikzpicture}
+            \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
+            \node (a) at (3,0) {a};
+            \node (b) at (0,3) {b};
+            \node (c) at (4,3) {c};
+            \node (d) at (0,1) {d};
+            \node (e) at (2,4) {e};
+            \node (f) at (2,1) {f};
+            \node (g) at (3,2) {g};
+            
+            \draw 
+            (a) edge [out=190, in=225, looseness=1.75] (b)
+            (a) -- (d)
+            (a) -- (g)
+            (a) -- (c)
+            (a) -- (f)
+            (b) -- (d)
+            (b) -- (f)
+            (b) -- (g)
+            (b) -- (e)
+            (c) -- (e)
+            (d) -- (f)
+            (d) -- (g)
+            (d) -- (e)
+            (e) -- (g);
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Examples}
+    Determine if the following graph is planar.  Justify your answer.
+    \centering
+    \begin{figure}
+        \begin{tikzpicture}
+            \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
+            \node (a) at (3,0) {a};
+            \node (b) at (0,3) {b};
+            \node (c) at (4,3) {c};
+            \node (d) at (0,1) {d};
+            \node (e) at (2,4) {e};
+            \node (g) at (3,2) {g};
+            
+            \draw 
+            (a) edge [out=190, in=225, looseness=1.75] (b)
+            (a) -- (d)
+            (a) -- (g)
+            (a) -- (c)
+            (b) -- (d)
+            (b) -- (g)
+            (b) -- (e)
+            (c) -- (e)
+            (d) -- (g)
+            (d) -- (e)
+            (e) -- (g);
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Examples}
+    Determine if the following graph is planar.  Justify your answer.
+    \centering
+    \begin{figure}
+        \begin{tikzpicture}
+            \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
+            \node (a) at (3,0) {a};
+            \node (b) at (0,3) {b};
+            \node (c) at (4,3) {c};
+            \node (d) at (0,1) {d};
+            \node (e) at (2,4) {e};
+            \node (g) at (3,2) {g};
+            
+            \draw 
+            (a) -- (b)
+            (a) -- (d)
+            (a) -- (g)
+            (a) -- (c)
+            (b) -- (d)
+            (b) -- (g)
+            (b) -- (e)
+            (c) -- (e)
+            (d) -- (g)
+            (d) -- (e)
+            (e) -- (g);
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Examples}
+    Determine if the following graph is planar.  Justify your answer.
+    \centering
+    \begin{figure}
+        \begin{tikzpicture}
+            \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
+            \node (a) at (3,0) {a};
+            \node (b) at (0,3) {b};
+            \node (g) at (4,3) {g};
+            \node (d) at (0,1) {d};
+            \node (e) at (2,4) {e};
+            \node (c) at (3,2) {c};
+            
+            \draw 
+            (a) -- (b)
+            (a) -- (d)
+            (a) -- (g)
+            (a) -- (c)
+            (b) -- (d)
+            (b) -- (g)
+            (b) -- (e)
+            (c) -- (e)
+            (d) -- (g)
+            (d) -- (e)
+            (e) -- (g);
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Examples}
+    Determine if the following graph is planar.  Justify your answer.
+    \centering
+    \begin{figure}
+        \begin{tikzpicture}
+            \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
+            \node (a) at (3,0) {a};
+            \node (b) at (0,3) {b};
+            \node (g) at (4,3) {g};
+            \node (d) at (0,1) {d};
+            \node (e) at (2,4) {e};
+            
+            \draw 
+            (a) -- (b)
+            (a) -- (d)
+            (a) -- (g)
+            (b) -- (d)
+            (b) -- (g)
+            (b) -- (e)
+            (a) -- (e)
+            (d) -- (g)
+            (d) -- (e)
+            (e) -- (g);
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+
+%% H
 \begin{frame}{Examples}
     Determine if the following graph is planar.  Justify your answer.
     \centering
