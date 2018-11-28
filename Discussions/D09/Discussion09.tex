@@ -565,6 +565,72 @@ A perfect matching of a graph is a matching (i.e., an independent edge set) in w
     \end{figure}
 \end{frame}
 
+\begin{frame}{Examples}
+    Determine if the following graph is planar.  Justify your answer.
+    \centering
+    \begin{figure}
+        \begin{tikzpicture}
+            \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
+            \node (a) at (0,4)   {a};
+            \node (b) at (0.5,1) {b};
+            \node (c) at (-0.5,-0.5)   {c};
+            \node (d) at (2,3)   {d};
+            \node (e) at (3,4)   {e};
+            \node (f) at (4,3)   {f};
+            \node (g) at (4,1)   {g};
+            
+            \draw 
+            (a) edge [out=30, in=45, looseness=1.75] (g)
+            (a) -- (b)
+            (a) -- (c)
+            (a) -- (d)
+            (a) -- (e)
+            (b) -- (c)
+            (b) -- (g)
+            (b) -- (f)
+            (c) -- (g)
+            (d) -- (e)
+            (d) -- (g)
+            (d) -- (f)
+            (e) -- (f)
+            (f) -- (g);
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Examples}
+    Determine if the following graph is planar.  Justify your answer.
+    \centering
+    \begin{figure}
+        \begin{tikzpicture}
+            \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
+            \node (a) at (0,4)   {a};
+            \node (b) at (0.5,1) {b};
+            \node (c) at (-0.5,-0.5)   {c};
+            \node (d) at (3,4)   {d};
+            \node (e) at (1.5,3)   {e};
+            \node (f) at (2.5,2)   {f};
+            \node (g) at (4,1)   {g};
+            
+            \draw 
+            (a) edge [out=30, in=45, looseness=1.75] (g)
+            (a) -- (b)
+            (a) -- (c)
+            (a) -- (d)
+            (a) -- (e)
+            (b) -- (c)
+            (b) -- (g)
+            (b) -- (f)
+            (c) -- (g)
+            (d) -- (e)
+            (d) -- (g)
+            (d) -- (f)
+            (e) -- (f)
+            (f) -- (g);
+        \end{tikzpicture}
+    \end{figure}
+\end{frame}
+
 \section{Trees}
 
 \begin{frame}{Trees}
