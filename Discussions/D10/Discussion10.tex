@@ -134,17 +134,19 @@
 
 \begin{frame}{Problem 2}
    \begin{itemize}
-          \item  For any integer $x>4$, it is not possible that all three numbers $x$, $x + 2$ and $x + 4$ are prime.
+          \item  Prove that for any integer $x>4$, it is not possible that all three numbers $x$, $x + 2$ and $x + 4$ are prime.
       \end{itemize}
 \end{frame}
 
 \begin{frame}{Problem 2}
    \begin{itemize}
-        \item  Solution:
+        \item  Prove by contradiction:
         \begin{itemize}
-            \item Since $x$ is greater than 4 it cannot be divisible by 3. So, $x$ is either in the form of $3q + 1$ or $3q + 2$ .
+            \item Suppose $x$, $x+2$, and $x+4$ are prime and $x > 4$.  It is clear that $x$ is not a multiple of 3 because if it were, then $x$ would not be prime. 
+            \item As $x$ cannot be divisible by 3, $x$ is either one more than a multiple of three or two more than a multiple of three.  Therefore, $x$ is either in the form of $3q + 1$ or $3q + 2$.  
             \item If $x = 3q + 1$ then: $$x + 2 = 3q + 1 + 2 = 3q + 3 = 3(q + 1) = 3q^{'}$$ hence $x + 2$ is divisible by 3. Therefore, it is not a prime number.
             \item If $x = 3q + 2$ then: $$x + 4 = 3q + 2 + 4 = 3q + 6 = 3(q + 2) = 3q^{'}$$ hence $x + 4$ is divisible by 3. Therefore, it is not a prime number.
+            \\ \hspace{10cm} {\tiny $\blacksquare$}
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -153,12 +155,12 @@
 
 \begin{frame}{Problem 3}
    \begin{itemize}
-          \item Prove that $1+3+5+...+(2n-1)=n^2$ for any integer $n \geq 1$. (The expression on the left-hand-side is the sum of the first n odd natural numbers). You can use mathematical induction or any other proof method.
+          \item Prove that $1+3+5+...+(2n-1)=n^2$ for any integer $n \geq 1$. (The expression on the left-hand-side is the sum of the first n odd natural numbers). 
       \end{itemize}
 \end{frame}
 \begin{frame}{Problem 3}
    \begin{itemize}
-        \item Solution:
+        \item Prove by induction:
         \begin{itemize}
             \item Base case: $$1 = 1^2$$
             \item Assumption: $$1 + 3 + 5 + \cdots + (2k - 1) = k^2$$
@@ -166,6 +168,7 @@
                                 $$1 + 3 + 5 + \cdots + (2k - 1) + (2k + 1) = (k + 1)^2$$
                                 $$k^2 + (2k + 1) = (k + 1)^2$$
                                 $$k^2 + 2k + 1 = k^2 + 2k + 1$$
+                                \\ \hspace{10cm} {\tiny $\blacksquare$}
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -236,31 +239,37 @@
     \begin{itemize} 
         \item Dealing with lower and upper bounds:
         \begin{itemize}
-            \item $7\leq S \leq14$, $S^{'}=S-7$, \\ 
-                    $0\leq S^{'} \leq7$
-            \item $ 6\leq N \leq 11$ , $N^{'}=N-6$, \\ 
-                    $0\leq N^{'} \leq5$
-            \item $3\leq F \implies 3\leq F \leq 32-7-6 \implies 3\leq F \leq 19$, $F^{'} = F - 3$, \\
-                    $0 \leq F^{'} \leq 16$
+            \item   $7 \leq S \leq 14$, $S^{'} = S - 7$:
+                    $$0 \leq S^{'} \leq 7$$
+            \item   $6 \leq N \leq 11$, $N^{'} = N - 6$: 
+                    $$0 \leq N^{'} \leq 5$$
+            \item   $3 \leq F \implies 3 \leq F \leq 32 - 7 - 6 \implies 3 \leq F \leq 19$, $F^{'} = F - 3$:
+                    $$0 \leq F^{'} \leq 16$$
         \end{itemize}
-        \item Stating new relations:
+        \item Stating new number of solutions from new bounds:
         \begin{itemize}
-            \item $S + N + F = 32$
-            \item $\implies S^{'} + 7 + N^{'} + 6 + F^{'} + 3 = 32$
-            \item $\implies S^{'} + N^{'} + F^{'} = 16$
+            \item $S + N + F = 32 \implies $
+            \item $S^{'} + 7 + N^{'} + 6 + F^{'} + 3 = 32 \implies $
+            \item $S^{'} + N^{'} + F^{'} = 16$
         \end{itemize}
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Problem 5}
     \begin{itemize} 
-        \item Applying Inclusion-Exclusion theorem:
+        \item Finding \textbf{S}$(S^{'} \leq 7 \cap N^{'} \leq 5 \cap F^{'} \geq 17)$ using Inclusion-Exclusion principle:
         \begin{itemize}
-            \item $S = S_{total} - S(S^{'} \geq 8 \cup N^{'} \geq 6 \cup F^{'} \geq 17)$
-            \item $S = S_{total} - (S(F^{'} \geq 17) + S(S^{'} \geq 8) + S(N^{'} \geq 6) -$ \\
-                    $S(F^{'} \geq 17 \cap S^{'} \geq 8) - S(F^{'} \geq 17 \cap N^{'} \geq 6) - S(N^{'} \geq 6 \cap S^{'} \geq 8) +$ \\
-                    $S(F^{'} \geq 17 \cap S^{'} \geq 8 \cap N^{'} \geq 6))$
-            \item $S = {16 + 3 - 1 \choose 3 - 1} - (0 - {16 - 8 - 3 - 1 \choose 3 - 1} - {16 - 6 - 3 - 1 \choose 3 - 1} + 0 + 0 + {16 - 14 + 3 - 1 \choose 3-1} -0)$
+            \item \textbf{S}$= S_{total} - S(S^{'} \geq 8 \cup N^{'} \geq 6 \cup F^{'} \geq 17)$
+            \item \textbf{S}$= S_{total} - [S(S^{'} \geq 8) + S(N^{'} \geq 6)  + S(F^{'} \geq 17)$ \\
+                    $- S(S^{'} \geq 8 \cap N^{'} \geq 6) - S(S^{'} \geq 8 \cap F^{'} \geq 17) - S(N^{'} \geq 6 \cap F^{'} \geq 17)$ \\
+                    $+ S(S^{'} \geq 8 \cap N^{'} \geq 6 \cap F^{'} \geq 17)]$
+            \item \textbf{S}$= {16 + 3 - 1 \choose 3 - 1} - [{16 - 8 + 3 - 1 \choose 3 - 1} + {16 - 6 + 3 - 1 \choose 3 - 1} + {16 - 17 + 3 - 1 \choose 3 - 1}$ \\
+                    $- {16 - 14 + 3 - 1 \choose 3 - 1} - {16 - 25 + 3 - 1 \choose 3 - 1} - {16 - 23 + 3 - 1 \choose 3 - 1}$ \\
+                    $+ {16 - 31 + 3 - 1 \choose 3 - 1}]$
+            \item \textbf{S}$= {18 \choose 2} - [{10 \choose 2} + {12 \choose 2} + {1 \choose 2}$ \\
+                    $- {4 \choose 2} - {-7 \choose 2} - {-5 \choose 2}$ \\
+                    $+ {-13 \choose 2}]$
+            \item \textbf{S}$= {18 \choose 2} - [{10 \choose 2} + {12 \choose 2} + 0 - {4 \choose 2} - 0 - 0 + 0]$
         \end{itemize}
     \end{itemize}
 \end{frame}
