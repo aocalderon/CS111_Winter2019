@@ -1,3 +1,3 @@
 CS/MATH 111, "Discrete Structures" 
-Fall 2018 
+Winter 2019 
 University of California, Riverside.
