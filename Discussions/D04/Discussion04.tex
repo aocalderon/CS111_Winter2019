@@ -120,12 +120,12 @@ The totient $\varphi(n)$ of a positive integer $n > 1$ is defined to be the numb
 \section{Problem 2}
 
 \begin{frame}{Problem 2}
-    \begin{itemize}
-        \item ``Break'' RSA by guessing the factorization of $n$
-        \item Compute Euler’s Totient Function $$\phi(n)$$ 
-        \item Compute the decryption exponent $d$ by computing $$e^{-1} \pmod{\phi(n)}$$ solve this by enumerating.
+    \begin{enumerate}
+        \item ``Break'' RSA by guessing the factorization of $n$.
+        \item Compute Euler’s Totient Function $\varphi(n)$.
+        \item Compute the decryption exponent $d$ by computing $$e^{-1} \pmod{\varphi(n)}$$ solve this by enumerating.
         \item Using private key pair $(d,n)$, decrypt the messages by $$ M = C^{d} \pmod n$$ $C$ stands for the encrypted messages.
-      \end{itemize}
+      \end{enumerate}
 \end{frame}
 
 \begin{frame}{Problem 2}
@@ -156,8 +156,8 @@ The totient $\varphi(n)$ of a positive integer $n > 1$ is defined to be the numb
             \item $q \not\equiv 3 \pmod 4$ \hspace{0.5cm} {\scriptsize [$q$ should be part of \{$p_1, p_2. \cdots, p_k$\}]}
             \item $q \equiv 1 \pmod 4$
         \end{itemize}
-        \item Then, $N = q_1 \cdot q_2 \cdot \ldots \cdot q_t$ and $\forall i \in \{1,2,\cdots,t\}: q \equiv 1 \pmod{4}$.
-        \item So, $N \equiv 1 \pmod{4}$, which is a contradiction of our initial definition of $N$.
+        \item Then, the prime factorization of $N$ is $$N = q_1^{e_1} \cdot q_2^{e_2} \cdot \ldots \cdot q_t^{e_t}$$ and $\forall i \in \{1,2,\cdots,t\}: q_i \equiv 1 \pmod{4}$.
+        \item So, $N \equiv 1 \pmod{4}$, [$N$ is prime!!!], which is a contradiction of our initial assumption. \\ \hspace{10.5cm} {\scriptsize $\blacksquare$}
     \end{itemize}
 \end{frame}
 
@@ -165,7 +165,7 @@ The totient $\varphi(n)$ of a positive integer $n > 1$ is defined to be the numb
 
 \begin{frame}{Conditions for parameters for RSA}
     What if ??? \\
-    $gcd(e, \phi(n)) > 1$ 
+    $gcd(e, \varphi(n)) > 1$ 
     $$d \equiv e^{-1} \pmod{ \varphi(n)}$$
     $$e \cdot d \equiv 1 \pmod{\varphi(n)}$$
     \begin{itemize}
@@ -193,7 +193,7 @@ The totient $\varphi(n)$ of a positive integer $n > 1$ is defined to be the numb
          6  & 11 & 5  & 29 & No       & 6 is not prime  \\ \hline
          19 & 7  & 5  & 37 & No       & $n = 133$ and $C = 7^5 \pmod{108} $  \\ \hline
          17 & 17 & 9  & 89 & No       & $p = q$  \\ \hline
-         29 & 11 & 7  & 37 & No       & $e \cdot d \not\equiv 1 \pmod{\phi(n)} $  \\ \hline
+         29 & 11 & 7  & 37 & No       & $e \cdot d \not\equiv 1 \pmod{\varphi(n)} $  \\ \hline
          3  & 7  & 5  & 5  & Yes      & $n = 21$ and $C = 7^5 \pmod{12}$  \\ \hline
     \end{tabular}
 \end{frame}
@@ -211,14 +211,17 @@ The totient $\varphi(n)$ of a positive integer $n > 1$ is defined to be the numb
 
 \begin{frame}{Miller-Rabin Primality Test\footnote{A great resource at \url{https://tinyurl.com/yafmmzax}}}
     \begin{itemize}
-        \item Let $n$ be a prime number\footnote{$n > 2$}. Then $n - 1$ is even and we can write it as $2^{s} \cdot d$
-        \item So we have: $$n - 1 = 2^{s} \cdot d$$where $s$ and $d$ are positive integers, and $d$ is odd. 
-        \item For each $a$ (a random positive integer), either...
+        \item Let $n$ be a prime number\footnote{$n > 2$}. Then $n - 1$ is even and, therefore, not a prime.
+        \item It can be written as:
+            $$n - 1 = 2^{s} \cdot d$$
+            where $s$ and $d$ are positive integers, and $d$ is odd. 
+        \item For each $a$ (a random positive integer), we test two cases...
         \begin{enumerate}
             \item $a^{d} \equiv 1 \pmod n$ or    
             \item $a^{2^r \cdot d} \equiv -1 \pmod n$, {\scriptsize For all $0 \leq r \leq s - 1$.}
         \end{enumerate}
-        \item If we can find $a$, s.t. (1) and (2) are not true for all $r$, then $n$ is not prime.
+        \item If we can find an $a$, s.t. (1) and (2) are not true for all $r$, then $n$ is not prime, it is a \textbf{composite} number.
+        \item If either (1) or (2) are true, $n$ can be prime. Testing again will increase that probability...
     \end{itemize}
 \end{frame}
 
@@ -229,10 +232,10 @@ Is $n = 221$ prime?
         \item We randomly select a number $a$ s.t. $1 < a < n - 1$. Let $a = 174$. 
         \item We proceed to compute:
         \begin{itemize}
-            \item $a^{2^0 \cdot d} \pmod{n} = 174^{55} \mod 221 = 47 \neq 1,- 1$
-            \item $a^{2^1 \cdot d} \pmod{n} = 174^{110} \mod 221 = 220 = -1$
+            \item $a^{d} \pmod{n} = 174^{55} \pmod{221} = 47 \neq 1$
+            \item $a^{2^1 \cdot d} \pmod{n} = 174^{110} \pmod{221} = 220 \pmod{221} = -1$
         \end{itemize}
-        \item Since $220 \equiv −1 \pmod{n}$, either 221 is prime, or 174 is a \textbf{strong liar} for 221.
+        \item Either 221 is prime, or 174 is a \textbf{strong liar} for 221.
         \item Keep trying...
     \end{itemize}
 \end{frame}
@@ -243,8 +246,8 @@ Is $n = 221$ prime?
         \item We write $n - 1 = 220 = 2^2 \cdot 55$, so $s = 2$ and $d = 55$.
         \item We try another random $a$, this time let $a = 137$:
         \begin{itemize}
-            \item $a^{2^0 \cdot d} \mod n = 137^{55} \mod 221 = 188 \neq 1, -1$
-            \item $a^{2^1 \cdot d} \mod n = 137^{110} \mod 221 = 205 \neq 1, -1$
+            \item $a^{d} \mod n = 137^{55} \mod 221 = 188 \neq 1$
+            \item $a^{2^1 \cdot d} \mod n = 137^{110} \mod 221 = 205 \neq -1$
         \end{itemize}
         \item Hence 137 is a \textbf{witness} for the compositeness of 221, and 174 was in fact a strong liar.
         \item Factors of 221 are 13 and 17.
