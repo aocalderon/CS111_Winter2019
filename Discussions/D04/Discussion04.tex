@@ -213,7 +213,7 @@ The totient $\varphi(n)$ of a positive integer $n > 1$ is defined to be the numb
     \begin{itemize}
         \item Let $n$ be a prime number\footnote{$n > 2$}. Then $n - 1$ is even and we can write it as $2^{s} \cdot d$
         \item So we have: $$n - 1 = 2^{s} \cdot d$$where $s$ and $d$ are positive integers, and $d$ is odd. 
-        \item For each $a$ in $(\frac{\mathbb{Z}}{n\mathbb{Z}})^{*}$, either...
+        \item For each $a$ (a random positive integer), either...
         \begin{enumerate}
             \item $a^{d} \equiv 1 \pmod n$ or    
             \item $a^{2^r \cdot d} \equiv -1 \pmod n$, {\scriptsize For all $0 \leq r \leq s - 1$.}
@@ -229,10 +229,10 @@ Is $n = 221$ prime?
         \item We randomly select a number $a$ s.t. $1 < a < n - 1$. Let $a = 174$. 
         \item We proceed to compute:
         \begin{itemize}
-            \item $a^{2^0 \cdot d} \mod n = 174^{55} \mod 221 = 47 \neq 1,- 1$
-            \item $a^{2^1 \cdot d} \mod n = 174^{110} \mod 221 = 220 = -1$
+            \item $a^{2^0 \cdot d} \pmod{n} = 174^{55} \mod 221 = 47 \neq 1,- 1$
+            \item $a^{2^1 \cdot d} \pmod{n} = 174^{110} \mod 221 = 220 = -1$
         \end{itemize}
-        \item Since $220 \equiv −1 \mod n$, either 221 is prime, or 174 is a \textbf{strong liar} for 221.
+        \item Since $220 \equiv −1 \pmod{n}$, either 221 is prime, or 174 is a \textbf{strong liar} for 221.
         \item Keep trying...
     \end{itemize}
 \end{frame}
