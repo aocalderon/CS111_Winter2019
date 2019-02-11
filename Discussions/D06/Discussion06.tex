@@ -17,6 +17,8 @@
 
 \usepackage{amssymb}
 
+\usepackage{amsmath}
+
 \usepackage{enumerate}
 
 \usepackage{minted}
@@ -72,9 +74,9 @@
 \makeatother
 
 \begin{document}
-\title[Discussion 6]{CS/MATH 111, Discrete Structures - Fall 2018. \\ Discussion 6 - Non-homogeneous Recurrences,  Divide and Conquer \& Inclusion - Exclusion }
+\title[Discussion 6]{CS/MATH 111, Discrete Structures - Winter 2019. \\ Discussion 6 - Non-homogeneous Recurrences,  Divide and Conquer \& Inclusion - Exclusion }
 \author[CS111]{Andres, Sara, Elena}
-\institute[Fall'18]{University of California, Riverside}
+\institute[Winter'19]{University of California, Riverside}
 \makebeamertitle
 \newif\iflattersubsect
 
@@ -305,13 +307,13 @@
         $$ T(n) = a \cdot T \Big(\frac{n}{b}\Big) + c \cdot n^d $$
     \end{theorem}
     
-    $T(n) =$ 
-    \left\{
-    \begin{tabular}{l r r}
+    
+    $ T(n) = \Bigg\{$    \begin{tabular}{l r r}
         $\Theta (n^{\log_b a})$ & \hspace{1cm} & $a > b^d$ \\
         $\Theta (n^d \log n)$   & \hspace{1cm} & $a = b^d$ \\
-        $\Theta (n^d)$          & \hspace{1cm} & $a < b^d$ 
-    \end{tabular}
+        $\Theta (n^d)$          & \hspace{1cm} & $a < b^d$ \\
+    \end{tabular}   
+    
 \end{frame}
 
 \begin{frame}{Divide and Conquer}
