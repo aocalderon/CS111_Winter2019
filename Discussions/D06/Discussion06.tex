@@ -107,7 +107,7 @@
     \end{theorem}
 \end{frame}
 
-\begin{frame}{Non-homogeneous recurrence}
+\begin{frame}{Linear Non-homogeneous recurrence relations}
     \centering
     \includegraphics[width=.75\linewidth]{r.png}
 \end{frame}
@@ -202,7 +202,8 @@
             $$ p_0 \cdot 2^n = 3 \cdot p_0 \cdot 2^{n-1} + p_0 \cdot 2^{n-2} + 3 \cdot 2^n $$
             $$ p_0 \cdot 2^n = 2^{n-2}( 3 \cdot p_0 \cdot 2^{1} + p_0 \cdot 2^{0} + 3 \cdot 2^2) $$
             $$ p_0 \cdot 2^2 = 3 \cdot p_0 \cdot 2 + p_0 + 3 \cdot 4 $$
-            $$ p_0 \cdot 4 = 7 \cdot p_0 + 12 $$
+            $$ 4 \cdot p_0  = 7 \cdot p_0 + 12 $$
+            $$ -3\cdot p_0  = 12 $$
             \begin{equation}\tag{3}
                 p_0 = -4
             \end{equation}
@@ -508,5 +509,16 @@ def PrintZs(n: integer)
 
 \end{frame}
 
+\section*{Bibliography}
+
+\begin{frame}{Bibliography}
+    \begin{itemize}
+        \item Discrete Mathematics and Its Applications. Rosen, K.H. 2012. McGraw-Hill. \\
+        Chapter 8: Advanced Counting Techniques. \\
+        Section 8.2: Solving Linear Recurrence Relations. \\
+        Section 8.3: Divide-and-Conquer Algorithms and Recurrence Relations. \\
+        Section 8.3: Inclusion–Exclusion. 
+    \end{itemize}
+\end{frame}
 
 \end{document}
