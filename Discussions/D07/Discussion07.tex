@@ -74,9 +74,9 @@
 \makeatother
 
 \begin{document}
-\title[Discussion 7]{CS/MATH 111, Discrete Structures - Fall 2018. \\ Discussion 7 - Non-homogeneous Recurrences,  Tiling \& Red Riding Hood problem }
+\title[Discussion 7]{CS/MATH 111, Discrete Structures - Winter 2019. \\ Discussion 7 - Non-homogeneous Recurrences,  Tiling \& Red Riding Hood problem }
 \author[CS111]{Andres, Sara, Elena}
-\institute[Fall'18]{University of California, Riverside}
+\institute[Winter'19]{University of California, Riverside}
 \makebeamertitle
 \newif\iflattersubsect
 
@@ -179,7 +179,7 @@
 
 \section{Tiling}
 
-\begin{frame}{Example\footnote{from \url{https://tinyurl.com/y6wj64bd}}}
+\begin{frame}{Example 1\footnote{from \url{https://tinyurl.com/y6wj64bd}}}
     Suppose you are trying to tile a 1 x n walkway with 4 different types of tiles: a red 1x1 tile, a green 1x1 tile, a blue 1x1 tile, and a grey 2x1 tile...
     \begin{enumerate}[a)]
         \item Set up and explain a recurrence relation for the number of different tilings for a sidewalk of length n.
@@ -188,7 +188,7 @@
     \end{enumerate}
 \end{frame}
 
-\begin{frame}{Example}
+\begin{frame}{Example 1}
     Suppose you have a tiling of length $n$. This can be built from:
     \begin{enumerate}
         \item a tiling of length $n-1$ followed by a single tile; OR
@@ -196,7 +196,7 @@
     \end{enumerate}
 \end{frame}
 
-\begin{frame}{Example}
+\begin{frame}{Example 1}
     Suppose you have a tiling of length $n$. This can be built from:
     \begin{enumerate}
         \item a tiling of length $n-1$ followed by a single tile; OR
@@ -207,7 +207,7 @@
     \includegraphics[width=1\linewidth]{tiling1}    
 \end{frame}
 
-\begin{frame}{Example}
+\begin{frame}{Example 1}
     \centering 
     \includegraphics[width=0.8\linewidth]{tiling1} 
     \begin{itemize}
@@ -218,7 +218,7 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Example}
+\begin{frame}{Example 1}
     \begin{itemize}
         \item Let $T_n$ be the number of different ways of tiling a 1 x n space. Then for $n \geq 3$:
         \begin{equation}\tag{1}
@@ -235,16 +235,16 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Quiz 3 Problem 3}
+\begin{frame}{Example 2}
 We want to tile the n x 1 strip with 2 x 1 and 1 x 1 tiles, using 2 x 1 tiles of orange color and 1 x 1 tiles of three colors: yellow, light-green and dark green.  Let $T_n$ be the number of such tilings in which no yellow tiles are next to each other.  Determine the formula for $T_n$ be setting up a recurrence equation...
 \end{frame}
 
-\begin{frame}{Quiz 3 Problem 3}
+\begin{frame}{Example 2}
     \centering
     \includegraphics[width=1\linewidth]{tiling2}
 \end{frame}
 
-\begin{frame}{Quiz 3 Problem 3}
+\begin{frame}{Example 2}
     \centering
     \includegraphics[width=0.8\linewidth]{tiling2}
 
