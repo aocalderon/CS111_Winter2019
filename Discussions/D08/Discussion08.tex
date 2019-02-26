@@ -77,9 +77,9 @@
 \makeatother
 
 \begin{document}
-\title[Discussion 8]{CS/MATH 111, Discrete Structures - Fall 2018. \\ Discussion 8 - Graphs}
+\title[Discussion 8]{CS/MATH 111, Discrete Structures - Winter 2018. \\ Discussion 8 - Graphs}
 \author[CS111]{Andres, Sara, Elena}
-\institute[Fall'18]{University of California, Riverside}
+\institute[Winter'18]{University of California, Riverside}
 \makebeamertitle
 \newif\iflattersubsect
 
@@ -98,7 +98,7 @@
     \end{frame}
 }
 
-\section{Euler tour}
+\section{Euler path and tour}
 
 \begin{frame}{Euler path and tour}
     \begin{defn}
@@ -113,9 +113,9 @@
       \end{itemize}
 \end{frame}
 
-\begin{frame}{Euler tour}
+\begin{frame}{Necessary and sufficient conditions for Euler circuits and paths}
     \begin{theorem}\label{theo:euler1}
-        An undirected graph has a closed Euler tour \textit{iff} it is connected and each vertex has an even degree.
+        An undirected graph has a closed Euler circuit \textit{iff} it is connected and each vertex has an even degree.
     \end{theorem}
    
     \begin{theorem}\label{theo:euler2}
@@ -157,36 +157,65 @@
    \begin{itemize}
         \item Determine weather the given graph has an Euler circuit:
     \end{itemize}
+    \centering \includegraphics[trim={12.2cm 6cm 6cm 18.2cm},clip,width=.45\linewidth]{p703}
+    
+    No.  It has nodes with odd degree...
+\end{frame}
+
+\begin{frame}{Euler tour}
+   \begin{itemize}
+        \item Determine weather the given graph has an Euler circuit:
+    \end{itemize}
     \centering \includegraphics[trim={12.2cm 2cm 5.2cm 22.2cm},clip,width=.45\linewidth]{p703}
 \end{frame}
 
-\section{Hamiltonian Cycle}
-
-\begin{frame}{Hamiltonian Cycle}
+\begin{frame}{Euler tour}
    \begin{itemize}
-        \item Hamiltonian Cycle (or Hamilton circuit) is a graph cycle (i.e., closed loop) through a graph that visits each node exactly once 
+        \item Determine weather the given graph has an Euler circuit\footnote{\tiny Have a look at Rosen's book [pg.696] for an algorithm...}:
     \end{itemize}
+    \centering \includegraphics[trim={12.2cm 2cm 5.2cm 22.2cm},clip,width=.45\linewidth]{p703}
+    
+    Yes, all nodes have even degree...
+\end{frame}
+
+\section{Hamiltonian path and circuit}
+
+\begin{frame}{Hamiltonian path and circuit}
+    \begin{defn}
+        A simple path in a graph $G$ that passes through every vertex exactly once is called a \textit{Hamilton path}, and a simple circuit in a graph $G$ that passes through every vertex exactly once is called a \textit{Hamilton circuit}. 
+        
+        That is, the simple path $x_0, x_1, \ldots, x_{n−1}, x_n$ in the graph $G = (V, E)$ is a Hamilton path if $V = {x_0, x_1, \ldots, x_{n−1}, x_n}$ and $x_i \neq x_j$ for $0 \leq i < j \leq n$, and the simple circuit $x_0, x_1, \ldots, x_{n−1}, x_n, x_0$ (with $n > 0$) is a Hamilton circuit if $x_0, x_1, \ldots, x_{n−1}, x_n$ is a Hamilton path.
+    \end{defn}
 \end{frame}
 
 \begin{frame}{Hamiltonian Cycle}
+   \begin{itemize}
+        \item Hamiltonian Cycle (or Hamilton circuit/tour) is a graph cycle (i.e., closed loop) through a graph that visits each node exactly once 
+        \item Graphs that have an Hamilton tour are called Hamiltonian. 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Conditions for the existence of Hamilton circuits}
     \begin{theorem}[Dirac's Theorem]\label{theo:dirac}
         If $G$ is a simple graph with $n$ vertices with $n\geq 3$ such that the degree of every vertex in $G$ is at least $\frac{n}{2}$, then $G$ has a Hamilton cycle. 
     \end{theorem}
     \begin{theorem}[Ore's Theorem]\label{theo:ore}
-        If G is a simple graph on n vertices, $n\geq 3$, and $d(v)+d(w)\geq n$ whenever v and w are not adjacent, then G has a Hamilton cycle. 
+        If $G$ is a simple graph with $n$ vertices with $n\geq 3$ such that $d(u) + d(v) \geq n$ for every pair of nonadjacent vertices $u$ and $v$ in $G$, then $G$ has a Hamilton cycle. 
     \end{theorem}
 \end{frame}
 
-\begin{frame}{Hamiltonian Cycle}
+\begin{frame}{Conditions for the existence of Hamilton circuits}
     \begin{itemize}
-        \item The graph does not have Hamiltonian cycle.
+        \item Both Ore's theorem and Dirac's theorem provide sufficient conditions for a connected simple graph to have a Hamilton circuit. 
+        \item However, these theorems do not provide necessary conditions for the existence of a Hamilton circuit. 
+        \item For example, the graph $C_5$ has a Hamilton circuit but does not satisfy the hypotheses of either Ore's theorem or Dirac's theorem.
     \end{itemize}
-    \centering \includegraphics[width=.7\linewidth]{p1.jpg}
+    \centering \includegraphics[trim={10cm 14cm 9cm 11cm},clip,width=.25\linewidth]{p655}
 \end{frame}
 
 \begin{frame}{Hamiltonian Cycle}
    \begin{itemize}
-        \item Determine weather the given graph has a Hamilton circuit:
+        \item Show that neither graph displayed has a Hamilton circuit:
     \end{itemize}
     \centering \includegraphics[trim={5cm 23cm 10cm 2cm},clip,width=.8\linewidth]{p700}
 \end{frame}
@@ -216,13 +245,33 @@
     \begin{itemize}
         \item For each of these graphs, determine: 
         {\scriptsize
-        \begin{enumerate}[(i)]
-            \item whether Dirac's theorem can be used to show that the graph has a Hamilton circuit
-            \item whether Ore's theorem can be used to show that the graph has a Hamilton circuit
-            \item whether the graph has a Hamilton circuit
-        \end{enumerate}}
+            \begin{enumerate}[(i)]
+                \item whether Dirac's theorem can be used to show that the graph has a Hamilton circuit
+                \item whether Ore's theorem can be used to show that the graph has a Hamilton circuit
+                \item whether the graph has a Hamilton circuit
+            \end{enumerate}
+        }
     \end{itemize}
     \centering \includegraphics[trim={2.4cm 11.5cm 13cm 11.2cm},clip,width=.45\linewidth]{p706}
+\end{frame}
+
+\begin{frame}{Hamiltonian Cycle}
+    \centering \includegraphics[trim={2.4cm 11.5cm 13cm 11.2cm},clip,width=.4\linewidth]{p706}
+    \scriptsize
+    \begin{enumerate}[a)]
+        \item No Dirac, No Ore but it has a Hamilton circuit!
+        \item Same that a).
+        \item Both Dirac and Ore guarantee the existence of a Hamilton circuit.
+        \item Same that c).
+    \end{enumerate}
+    Although not illustrated in any of the examples in this exercise, there are graphs for which Ore's theorem applies, even though Dirac's does not.
+\end{frame}
+
+\begin{frame}{Exercise}
+    \begin{itemize}
+        \item Does this graph have Hamiltonian cycle?
+    \end{itemize}
+    \centering \includegraphics[width=.7\linewidth]{p1.jpg}
 \end{frame}
 
 \begin{frame}{Gray codes \footnote{\scriptsize \url{https://en.wikipedia.org/wiki/Gray_code}}}
@@ -298,10 +347,14 @@
 \section{Vertex Coloring}
 
 \begin{frame}{Vertex Coloring}
-    \begin{itemize}
-        \item The chromatic number of a graph  is the smallest number of colors needed to color the vertices so that no two adjacent vertices share the same color.
-        \item Hardness: A very hard problem(an NP-Complete problem).
-    \end{itemize}
+    \begin{defn}
+        A coloring of a simple graph is the assignment of a color to each vertex of the graph so that no two adjacent vertices are assigned the same color.
+    \end{defn}
+    \begin{defn}
+        The chromatic number of a graph is the least number of colors needed for a coloring of this graph. The chromatic number of a graph $G$ is denoted by $\chi(G)$. (Here $\chi$ is the Greek letter chi.)
+    \end{defn}
+    \vspace{1cm}
+    \centering A very hard problem(an NP-Complete problem).
 \end{frame}
 
 \begin{frame}{Vertex Coloring}
@@ -311,8 +364,35 @@
         \node[shape=circle,draw=black] (B) at (2,4) {B};
         \node[shape=circle,draw=black] (C) at (2,0) {C};
         \node[shape=circle,draw=black] (D) at (4,2) {D};
-        \node[shape=circle,draw=black] (F) at (6,0) {F};
         \node[shape=circle,draw=black] (E) at (6,4) {E};
+        \node[shape=circle,draw=black] (F) at (6,0) {F};
+        \node[shape=circle,draw=black] (G) at (8,2) {G};
+
+        \path [-](A) edge (B);
+        \path [-](A) edge (C);
+        \path [-](B) edge (C);
+        \path [-](B) edge (D);
+        \path [-](B) edge (E);
+        \path [-](C) edge (D);
+        \path [-](D) edge (E);
+        \path [-](D) edge (F);
+        \path [-](D) edge (F);
+        \path [-](C) edge (F);
+        \path [-](E) edge (G);   
+        \path [-](E) edge (F);   
+        \path [-](F) edge (G);   
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Vertex Coloring}
+    \centering
+    \begin{tikzpicture}
+        \node[shape=circle,draw=black,fill=red]   (A) at (0,2) {A};
+        \node[shape=circle,draw=black,fill=blue]  (B) at (2,4) {B};
+        \node[shape=circle,draw=black] (C) at (2,0) {C};
+        \node[shape=circle,draw=black] (D) at (4,2) {D};
+        \node[shape=circle,draw=black] (E) at (6,4) {E};
+        \node[shape=circle,draw=black] (F) at (6,0) {F};
         \node[shape=circle,draw=black] (G) at (8,2) {G};
 
         \path [-](A) edge (B);
@@ -338,35 +418,35 @@
         \node[shape=circle,draw=black,fill=blue]  (B) at (2,4) {B};
         \node[shape=circle,draw=black,fill=green] (C) at (2,0) {C};
         \node[shape=circle,draw=black] (D) at (4,2) {D};
-        \node[shape=circle,draw=black] (F) at (6,0) {F};
         \node[shape=circle,draw=black] (E) at (6,4) {E};
-        \node[shape=circle,draw=black] (G) at (8,2) {G};
-
-        \path [-](A) edge (B);
-        \path [-](A) edge (C);
-        \path [-](B) edge (C);
-        \path [-](B) edge (D);
-        \path [-](B) edge (E);
-        \path [-](C) edge (D);
-        \path [-](D) edge (E);
-        \path [-](D) edge (F);
-        \path [-](D) edge (F);
-        \path [-](C) edge (F);
-        \path [-](E) edge (G);   
-        \path [-](E) edge (F);   
-        \path [-](F) edge (G);   
-    \end{tikzpicture}
-\end{frame}
-
-\begin{frame}{Vertex Coloring}
-    \centering
-    \begin{tikzpicture}
-        \node[shape=circle,draw=black,fill=red]   (A) at (0,2) {A};
-        \node[shape=circle,draw=black,fill=blue]  (B) at (2,4) {B};
-        \node[shape=circle,draw=black,fill=green] (C) at (2,0) {C};
-        \node[shape=circle,draw=black,fill=red]   (D) at (4,2) {D};
         \node[shape=circle,draw=black] (F) at (6,0) {F};
+        \node[shape=circle,draw=black] (G) at (8,2) {G};
+
+        \path [-](A) edge (B);
+        \path [-](A) edge (C);
+        \path [-](B) edge (C);
+        \path [-](B) edge (D);
+        \path [-](B) edge (E);
+        \path [-](C) edge (D);
+        \path [-](D) edge (E);
+        \path [-](D) edge (F);
+        \path [-](D) edge (F);
+        \path [-](C) edge (F);
+        \path [-](E) edge (G);   
+        \path [-](E) edge (F);   
+        \path [-](F) edge (G);   
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Vertex Coloring}
+    \centering
+    \begin{tikzpicture}
+        \node[shape=circle,draw=black,fill=red]   (A) at (0,2) {A};
+        \node[shape=circle,draw=black,fill=blue]  (B) at (2,4) {B};
+        \node[shape=circle,draw=black,fill=green] (C) at (2,0) {C};
+        \node[shape=circle,draw=black,fill=red]   (D) at (4,2) {D};
         \node[shape=circle,draw=black] (E) at (6,4) {E};
+        \node[shape=circle,draw=black] (F) at (6,0) {F};
         \node[shape=circle,draw=black] (G) at (8,2) {G};
 
         \path [-](A) edge (B);
@@ -392,8 +472,8 @@
         \node[shape=circle,draw=black,fill=blue]  (B) at (2,4) {B};
         \node[shape=circle,draw=black,fill=green] (C) at (2,0) {C};
         \node[shape=circle,draw=black,fill=red]   (D) at (4,2) {D};
-        \node[shape=circle,draw=black,fill=blue]  (F) at (6,0) {F};
         \node[shape=circle,draw=black,fill=green] (E) at (6,4) {E};
+        \node[shape=circle,draw=black] (F) at (6,0) {F};
         \node[shape=circle,draw=black] (G) at (8,2) {G};
 
         \path [-](A) edge (B);
@@ -419,8 +499,35 @@
         \node[shape=circle,draw=black,fill=blue]  (B) at (2,4) {B};
         \node[shape=circle,draw=black,fill=green] (C) at (2,0) {C};
         \node[shape=circle,draw=black,fill=red]   (D) at (4,2) {D};
-        \node[shape=circle,draw=black,fill=blue]  (F) at (6,0) {F};
         \node[shape=circle,draw=black,fill=green] (E) at (6,4) {E};
+        \node[shape=circle,draw=black,fill=blue]  (F) at (6,0) {F};
+        \node[shape=circle,draw=black] (G) at (8,2) {G};
+
+        \path [-](A) edge (B);
+        \path [-](A) edge (C);
+        \path [-](B) edge (C);
+        \path [-](B) edge (D);
+        \path [-](B) edge (E);
+        \path [-](C) edge (D);
+        \path [-](D) edge (E);
+        \path [-](D) edge (F);
+        \path [-](D) edge (F);
+        \path [-](C) edge (F);
+        \path [-](E) edge (G);   
+        \path [-](E) edge (F);   
+        \path [-](F) edge (G);   
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Vertex Coloring}
+    \centering
+    \begin{tikzpicture}
+        \node[shape=circle,draw=black,fill=red]   (A) at (0,2) {A};
+        \node[shape=circle,draw=black,fill=blue]  (B) at (2,4) {B};
+        \node[shape=circle,draw=black,fill=green] (C) at (2,0) {C};
+        \node[shape=circle,draw=black,fill=red]   (D) at (4,2) {D};
+        \node[shape=circle,draw=black,fill=green] (E) at (6,4) {E};
+        \node[shape=circle,draw=black,fill=blue]  (F) at (6,0) {F};
         \node[shape=circle,draw=black,fill=red]   (G) at (8,2) {G};
 
         \path [-](A) edge (B);
