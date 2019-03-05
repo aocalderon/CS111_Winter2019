@@ -79,9 +79,9 @@
 \makeatother
 
 \begin{document}
-\title[Discussion 9]{CS/MATH 111, Discrete Structures - Winter 2019. \\ Discussion 9 - Graphs and Tree introduction}
+\title[Discussion 9]{CS/MATH 111, Discrete Structures - Fall 2018. \\ Discussion 9 - Graphs and Tree introduction}
 \author[CS111]{Andres, Sara, Elena}
-\institute[Winter'19]{University of California, Riverside}
+\institute[Fall'18]{University of California, Riverside}
 \makebeamertitle
 \newif\iflattersubsect
 
@@ -103,17 +103,11 @@
 \section{Bipartite graph}
 
 \begin{frame}{Bipartite graph}
-    \begin{defn}
-      A simple graph $G$ is called bipartite if its vertex set $V$ can be partitioned into two disjoint sets $V_1$ and $V_2$ such that every edge in the graph connects a vertex in $V_1$ and a vertex in $V_2$.
-    \end{defn}
-\end{frame}
-
-
-\begin{frame}{Bipartite graph}
     \begin{itemize}
+        \item A bipartite graph, also called a bigraph, is a set of graph vertices decomposed into two disjoint sets such that no two graph vertices within the same set are adjacent.
         \item Bipartite graphs are equivalent to two-colorable graphs. 
         \item All acyclic graphs are bipartite. 
-        \item A cyclic graph is bipartite iff all its cycles are of even length.
+        \item A cyclic graph is bipartite iff all its cycles are of even length
     \end{itemize}
 \end{frame}
 
@@ -145,7 +139,7 @@
 \begin{frame}{Perfect matching}
     \begin{itemize}
         \item A perfect matching of a graph is a matching (i.e., an independent edge set) in which every vertex of the graph is incident to exactly one edge of the matching.
-        \item A perfect matching is therefore a matching containing $\frac{n}{2}$ edges (the largest possible)\footnote{{\tiny \url{http://mathworld.wolfram.com/PerfectMatching.html}}}, meaning perfect matchings are only possible on graphs with an even number of vertices.
+        \item A perfect matching is therefore a matching containing $\frac{n}{2}$ edges (the largest possible), meaning perfect matchings are only possible on graphs with an even number of vertices.
     \end{itemize}
 \end{frame}
 
@@ -158,7 +152,7 @@
 
 \begin{frame}{Hall's Theorem\footnote{Proof available at [Rosen, 2015. pg 660].}}
     \begin{theorem}
-        Let $G = (X,Y)$ be a bipartite graph. Then $X$ has a perfect macthing into $Y$ iif for all $T \subseteq X$, the inequality $|T| \leq |N(T)|$ holds. Where $N(T)$ is the set of all neighbors of the vertices in $T$. In other words, $y \in  Y$ is an element of $N(T)$ iif there is a vertex $x \in  T$ so that $(x,y)$ is an edge.
+        Let $G = (X,Y)$ be a bipartite graph. Then $X$ has a perfect macthing into $Y$ if and only if for all $T \subseteq X$, the inequality $|T| \leq |N(T)|$ holds. Where $N(T)$ is the set of all neighbors of the vertices in $T$. In other words, $y \in  Y$ is an element of $N(T)$ if and only if there is a vertex $x \in  T$ so that $(x,y)$ is an edge.
     \end{theorem}
 \end{frame}
 
@@ -465,12 +459,12 @@
             (d) -- (f)
             (c) -- (f);
             
-            \node[scale=1.5,fill=white] at (2,2)    {$R_1$};
-            \node[scale=1.5,fill=white] at (5,5)    {$R_2$};
-            \node[scale=1.5,fill=white] at (7,3.5)  {$R_3$};
-            \node[scale=1.5,fill=white] at (10,2)   {$R_4$};
-            \node[scale=1.5,fill=white] at (10,5)   {$R_5$};
-            \node[scale=1.5,fill=white] at (12,4) {$R_6$};
+            \node[text,scale=1.5,fill=white] at (2,2)    {$R_1$};
+            \node[text,scale=1.5,fill=white] at (5,5)    {$R_2$};
+            \node[text,scale=1.5,fill=white] at (7,3.5)  {$R_3$};
+            \node[text,scale=1.5,fill=white] at (10,2)   {$R_4$};
+            \node[text,scale=1.5,fill=white] at (10,5)   {$R_5$};
+            \node[text,scale=1.5,fill=white] at (12,4) {$R_6$};
         \end{tikzpicture}
         \caption{The Regions of the Planar Representation of a Graph.}
     \end{figure}
@@ -484,7 +478,7 @@
 
 \begin{frame}{Euler's Formula}
     \begin{corollary}
-        If G is a connected planar simple graph with m edges and n vertices, and $n \geq 3$ and no circuits of length $3$, then $m \leq 2n - 4$.
+        If G is a connected planar graph with m edges and n vertices, and $n \geq 3$ and no circuits of length $3$, then $m \leq 2n - 4$.
     \end{corollary}
 \end{frame}
 
@@ -840,7 +834,7 @@
             \node (e) at (0,0) {e};
             \node (b) at (2,0) {b};
             \node (c) at (4,0) {c};
-            \node (h) at (6,0) {h};
+            \node (h) at (6,0) {g};
             
             \draw 
             (a) -- (e)
@@ -864,14 +858,14 @@
     \begin{figure}
         \begin{tikzpicture}[scale=1.5]
             \tikzstyle{every node}=[draw, shape=circle]
-            \node (e) at (1,1)  {e};
-            \node (a) at (3,1)  {a};
-            \node (d) at (4,2)  {d};
-            \node (h) at (6,2)  {h};
+            \node (e) at (1,1) {e};
+            \node (a) at (3,1) {a};
+            \node (d) at (4,2) {d};
+            \node (h) at (6,2) {h};
             \node (b) at (1,-1) {b};
             \node (f) at (3,-1) {f};
-            \node (g) at (4,0)  {g};
-            \node (c) at (6,0)  {c};
+            \node (g) at (4,0) {g};
+            \node (c) at (6,0) {c};
             
             \draw 
             (a) -- (e)
@@ -941,32 +935,25 @@
 
 \begin{frame}{Trees}
     \begin{lemma}
-      If $T$ is a tree, and has $n$ vertices, then its number of edges is $m = n - 1$.
-      \let\thefootnote\relax\footnotetext{{\tiny Taken from Rosen's book (pg 752).}}
+        It T is a tree, and has n vertices, then its number of edges is $m = n - 1$.
     \end{lemma}
 \end{frame}
 
 \begin{frame}{Proof}
-  \small
     \begin{enumerate}[<+->]
         \item Basis step: 
-          \begin{itemize}
-            \scriptsize
-            \item When $n = 1$, a tree with $n = 1$ vertex has no edges.  Indeed, $m = n - 1 = 0$.
+        \begin{itemize}
+            \item When $n = 1$, a tree with $n = 1$ vertex has no edges.  Indeed, $n -1 = 0$.
         \end{itemize}
         \item Assumption step:
         \begin{itemize}
-            \scriptsize
-            \item Let's assume that every tree with $n = k$ vertices has $m = k - 1$ edges, where $k$ is a positive integer.
+            \item Let's assume that every tree with $k$ vertices has $k - 1$ edges, where $k$ is a positive integer.
         \end{itemize}
         \item Inductive step: 
         \begin{itemize}
-          \scriptsize
-          \item Suppose that a tree $T$ has $n = k + 1$ vertices, we want to prove that $T$ has $k$ edges.
-          \item Let's suppose that $v$ is a leaf\footnote{{\tiny It must exist because the tree is finite}} of $T$.  Let $w$ be the parent of $v$. 
-          \item Remove $v$ from $T$ and the edge connecting $w$ to $v$. It produces a tree $T^\prime$ with $k$ vertices\footnote{ {\tiny $T^\prime$is still connected and has no simple circuits.}}. 
-          \item By the assumption hypothesis, as $T^\prime$ has $k$ vertices, it has $k - 1$ edges.
-          \item It follows that $T$ has $k$ edges because it has one more edge than $T^\prime$ (the edge connecting $v$ and $w$). \\ \hspace{10cm} {\tiny $\blacksquare$}
+            \item Suppose that a tree $T$ has $k + 1$ vertices and that $v$ is a leaf\footnote{{\tiny It must exist because the tree is finite}} of $T$.  Let $w$ be the parent of $v$. 
+            \item Remove $v$ from $T$ and the edge connecting $w$ to $v$. It produces a tree $T^\prime$ with $k$ vertices\footnote{ {\tiny $T^\prime$is still connected and has no simple circuits.}}. 
+            \item By the assumption hypothesis, $T^\prime$ has $k - 1$ edges. It follows that $T$ has $k$ edges because it has one more edge than $T^\prime$ (the edge connecting $v$ and $w$). \\ \hspace{10cm} {\tiny $\blacksquare$}
         \end{itemize}
     \end{enumerate}
 \end{frame}
