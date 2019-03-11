@@ -532,273 +532,300 @@
     \end{figure}
 \end{frame}
 
+\begin{frame}{Some examples\footnote{{\tiny Taken from \url{https://tinyurl.com/yyd5cq8g}}}}
+    \centering \includegraphics[width=.7\linewidth]{K1.png}
+\end{frame}
+
+\begin{frame}{Some examples}
+    \centering \includegraphics[width=.7\linewidth]{K2.png}
+\end{frame}
+
+\begin{frame}{Some examples}
+    \centering \includegraphics[width=.6\linewidth]{K3.png}
+\end{frame}
+
 %% G
-\begin{frame}{Example 1}
-    Determine if the following graph is planar.  Justify your answer.
-    \begin{figure}
-        \begin{tikzpicture}
-            \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
-            \node (a) at (3,0) {a};
-            \node (b) at (0,3) {b};
-            \node (c) at (4,3) {c};
-            \node (d) at (0,1) {d};
-            \node (e) at (2,4) {e};
-            \node (f) at (2,1) {f};
-            \node (g) at (3,2) {g};
-            
-            \draw 
-            (a) edge [out=190, in=225, looseness=1.75] (b)
-            (a) -- (d)
-            (a) -- (g)
-            (a) -- (c)
-            (a) -- (f)
-            (b) -- (d)
-            (b) -- (f)
-            (b) -- (g)
-            (b) -- (e)
-            (c) -- (g)
-            (c) -- (e)
-            (d) -- (f)
-            (d) -- (g)
-            (d) -- (e)
-            (e) -- (g);
-        \end{tikzpicture}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{Example 1}
-    \begin{figure}
-        \begin{tikzpicture}
-            \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
-            \node (a) at (3,0) {a};
-            \node (b) at (0,3) {b};
-            \node (c) at (4,3) {c};
-            \node (d) at (0,1) {d};
-            \node (e) at (2,4) {e};
-            \node (f) at (2,1) {f};
-            \node (g) at (3,2) {g};
-            
-            \draw 
-            (a) edge [out=190, in=225, looseness=1.75] (b)
-            (a) -- (d)
-            (a) -- (g)
-            (a) -- (c)
-            (a) -- (f)
-            (b) -- (d)
-            (b) -- (f)
-            (b) -- (g)
-            (b) -- (e)
-            (c) -- (e)
-            (d) -- (f)
-            (d) -- (g)
-            (d) -- (e)
-            (e) -- (g);
-        \end{tikzpicture}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{Example 1}
-    \begin{figure}
-        \begin{tikzpicture}
-            \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
-            \node (a) at (3,0) {a};
-            \node (b) at (0,3) {b};
-            \node (c) at (4,3) {c};
-            \node (d) at (0,1) {d};
-            \node (e) at (2,4) {e};
-            \node (g) at (3,2) {g};
-            
-            \draw 
-            (a) edge [out=190, in=225, looseness=1.75] (b)
-            (a) -- (d)
-            (a) -- (g)
-            (a) -- (c)
-            (b) -- (d)
-            (b) -- (g)
-            (b) -- (e)
-            (c) -- (e)
-            (d) -- (g)
-            (d) -- (e)
-            (e) -- (g);
-        \end{tikzpicture}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{Example 1}
-    \begin{figure}
-        \begin{tikzpicture}
-            \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
-            \node (a) at (3,0) {a};
-            \node (b) at (0,3) {b};
-            \node (c) at (4,3) {c};
-            \node (d) at (0,1) {d};
-            \node (e) at (2,4) {e};
-            \node (g) at (3,2) {g};
-            
-            \draw 
-            (a) -- (b)
-            (a) -- (d)
-            (a) -- (g)
-            (a) -- (c)
-            (b) -- (d)
-            (b) -- (g)
-            (b) -- (e)
-            (c) -- (e)
-            (d) -- (g)
-            (d) -- (e)
-            (e) -- (g);
-        \end{tikzpicture}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{Example 1}
-    \begin{figure}
-        \begin{tikzpicture}
-            \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
-            \node (a) at (3,0) {a};
-            \node (b) at (0,3) {b};
-            \node (g) at (4,3) {g};
-            \node (d) at (0,1) {d};
-            \node (e) at (2,4) {e};
-            \node (c) at (3,2) {c};
-            
-            \draw 
-            (a) -- (b)
-            (a) -- (d)
-            (a) -- (g)
-            (a) -- (c)
-            (b) -- (d)
-            (b) -- (g)
-            (b) -- (e)
-            (c) -- (e)
-            (d) -- (g)
-            (d) -- (e)
-            (e) -- (g);
-        \end{tikzpicture}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{Example 1}
-    \begin{figure}
-        \begin{tikzpicture}
-            \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
-            \node (a) at (3,0) {a};
-            \node (b) at (0,3) {b};
-            \node (g) at (4,3) {g};
-            \node (d) at (0,1) {d};
-            \node (e) at (2,4) {e};
-            
-            \draw 
-            (a) -- (b)
-            (a) -- (d)
-            (a) -- (g)
-            (b) -- (d)
-            (b) -- (g)
-            (b) -- (e)
-            (a) -- (e)
-            (d) -- (g)
-            (d) -- (e)
-            (e) -- (g);
-        \end{tikzpicture}
-    \end{figure}
-\end{frame}
+% \begin{frame}{Example 1}
+%     Determine if the following graph is planar.  Justify your answer.
+%     \begin{figure}
+%         \begin{tikzpicture}
+%             \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
+%             \node (a) at (3,0) {a};
+%             \node (b) at (0,3) {b};
+%             \node (c) at (4,3) {c};
+%             \node (d) at (0,1) {d};
+%             \node (e) at (2,4) {e};
+%             \node (f) at (2,1) {f};
+%             \node (g) at (3,2) {g};
+%             
+%             \draw 
+%             (a) edge [out=190, in=225, looseness=1.75] (b)
+%             (a) -- (d)
+%             (a) -- (g)
+%             (a) -- (c)
+%             (a) -- (f)
+%             (b) -- (d)
+%             (b) -- (f)
+%             (b) -- (g)
+%             (b) -- (e)
+%             (c) -- (g)
+%             (c) -- (e)
+%             (d) -- (f)
+%             (d) -- (g)
+%             (d) -- (e)
+%             (e) -- (g);
+%         \end{tikzpicture}
+%     \end{figure}
+% \end{frame}
+% 
+% \begin{frame}{Example 1}
+%     \begin{figure}
+%         \begin{tikzpicture}
+%             \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
+%             \node (a) at (3,0) {a};
+%             \node (b) at (0,3) {b};
+%             \node (c) at (4,3) {c};
+%             \node (d) at (0,1) {d};
+%             \node (e) at (2,4) {e};
+%             \node (f) at (2,1) {f};
+%             \node (g) at (3,2) {g};
+%             
+%             \draw 
+%             (a) edge [out=190, in=225, looseness=1.75] (b)
+%             (a) -- (d)
+%             (a) -- (g)
+%             (a) -- (c)
+%             (a) -- (f)
+%             (b) -- (d)
+%             (b) -- (f)
+%             (b) -- (g)
+%             (b) -- (e)
+%             (c) -- (e)
+%             (d) -- (f)
+%             (d) -- (g)
+%             (d) -- (e)
+%             (e) -- (g);
+%         \end{tikzpicture}
+%     \end{figure}
+% \end{frame}
+% 
+% \begin{frame}{Example 1}
+%     \begin{figure}
+%         \begin{tikzpicture}
+%             \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
+%             \node (a) at (3,0) {a};
+%             \node (b) at (0,3) {b};
+%             \node (c) at (4,3) {c};
+%             \node (d) at (0,1) {d};
+%             \node (e) at (2,4) {e};
+%             \node (g) at (3,2) {g};
+%             
+%             \draw 
+%             (a) edge [out=190, in=225, looseness=1.75] (b)
+%             (a) -- (d)
+%             (a) -- (g)
+%             (a) -- (c)
+%             (b) -- (d)
+%             (b) -- (g)
+%             (b) -- (e)
+%             (c) -- (e)
+%             (d) -- (g)
+%             (d) -- (e)
+%             (e) -- (g);
+%         \end{tikzpicture}
+%     \end{figure}
+% \end{frame}
+% 
+% \begin{frame}{Example 1}
+%     \begin{figure}
+%         \begin{tikzpicture}
+%             \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
+%             \node (a) at (3,0) {a};
+%             \node (b) at (0,3) {b};
+%             \node (c) at (4,3) {c};
+%             \node (d) at (0,1) {d};
+%             \node (e) at (2,4) {e};
+%             \node (g) at (3,2) {g};
+%             
+%             \draw 
+%             (a) -- (b)
+%             (a) -- (d)
+%             (a) -- (g)
+%             (a) -- (c)
+%             (b) -- (d)
+%             (b) -- (g)
+%             (b) -- (e)
+%             (c) -- (e)
+%             (d) -- (g)
+%             (d) -- (e)
+%             (e) -- (g);
+%         \end{tikzpicture}
+%     \end{figure}
+% \end{frame}
+% 
+% \begin{frame}{Example 1}
+%     \begin{figure}
+%         \begin{tikzpicture}
+%             \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
+%             \node (a) at (3,0) {a};
+%             \node (b) at (0,3) {b};
+%             \node (g) at (4,3) {g};
+%             \node (d) at (0,1) {d};
+%             \node (e) at (2,4) {e};
+%             \node (c) at (3,2) {c};
+%             
+%             \draw 
+%             (a) -- (b)
+%             (a) -- (d)
+%             (a) -- (g)
+%             (a) -- (c)
+%             (b) -- (d)
+%             (b) -- (g)
+%             (b) -- (e)
+%             (c) -- (e)
+%             (d) -- (g)
+%             (d) -- (e)
+%             (e) -- (g);
+%         \end{tikzpicture}
+%     \end{figure}
+% \end{frame}
+% 
+% \begin{frame}{Example 1}
+%     \begin{figure}
+%         \begin{tikzpicture}
+%             \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
+%             \node (a) at (3,0) {a};
+%             \node (b) at (0,3) {b};
+%             \node (g) at (4,3) {g};
+%             \node (d) at (0,1) {d};
+%             \node (e) at (2,4) {e};
+%             
+%             \draw 
+%             (a) -- (b)
+%             (a) -- (d)
+%             (a) -- (g)
+%             (b) -- (d)
+%             (b) -- (g)
+%             (b) -- (e)
+%             (a) -- (e)
+%             (d) -- (g)
+%             (d) -- (e)
+%             (e) -- (g);
+%         \end{tikzpicture}
+%     \end{figure}
+% \end{frame}
 
 %% H
-\begin{frame}{Example 2}
+% \begin{frame}{Example 2}
+%     \begin{figure}
+%         \begin{tikzpicture}
+%             \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
+%             \node (a) at (0,4)   {a};
+%             \node (b) at (0.5,1) {b};
+%             \node (c) at (2,0)   {c};
+%             \node (d) at (2,3)   {d};
+%             \node (e) at (3,4)   {e};
+%             \node (f) at (4,3)   {f};
+%             \node (g) at (4,1)   {g};
+%             
+%             \draw 
+%             (a) edge [out=30, in=45, looseness=1.75] (g)
+%             (a) -- (b)
+%             (a) -- (c)
+%             (a) -- (d)
+%             (a) -- (e)
+%             (b) -- (c)
+%             (b) -- (g)
+%             (b) -- (f)
+%             (c) -- (g)
+%             (d) -- (e)
+%             (d) -- (g)
+%             (d) -- (f)
+%             (e) -- (f)
+%             (f) -- (g);
+%         \end{tikzpicture}
+%     \end{figure}
+% \end{frame}
+% 
+% \begin{frame}{Example 2}
+%     \begin{figure}
+%         \begin{tikzpicture}
+%             \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
+%             \node (a) at (0,4)   {a};
+%             \node (b) at (0.5,1) {b};
+%             \node (c) at (-0.5,-0.5)   {c};
+%             \node (d) at (2,3)   {d};
+%             \node (e) at (3,4)   {e};
+%             \node (f) at (4,3)   {f};
+%             \node (g) at (4,1)   {g};
+%             
+%             \draw 
+%             (a) edge [out=30, in=45, looseness=1.75] (g)
+%             (a) -- (b)
+%             (a) -- (c)
+%             (a) -- (d)
+%             (a) -- (e)
+%             (b) -- (c)
+%             (b) -- (g)
+%             (b) -- (f)
+%             (c) -- (g)
+%             (d) -- (e)
+%             (d) -- (g)
+%             (d) -- (f)
+%             (e) -- (f)
+%             (f) -- (g);
+%         \end{tikzpicture}
+%     \end{figure}
+% \end{frame}
+%  
+%  \begin{frame}{Example 2}
+%     \begin{figure}
+%         \begin{tikzpicture}
+%             \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
+%             \node (a) at (0,4)   {a};
+%             \node (b) at (0.5,1) {b};
+%             \node (c) at (-0.5,-0.5)   {c};
+%             \node (d) at (3,4)   {d};
+%             \node (e) at (1.5,3)   {e};
+%             \node (f) at (2.5,2)   {f};
+%             \node (g) at (4,1)   {g};
+%             
+%             \draw 
+%             (a) edge [out=30, in=45, looseness=1.75] (g)
+%             (a) -- (b)
+%             (a) -- (c)
+%             (a) -- (d)
+%             (a) -- (e)
+%             (b) -- (c)
+%             (b) -- (g)
+%             (b) -- (f)
+%             (c) -- (g)
+%             (d) -- (e)
+%             (d) -- (g)
+%             (d) -- (f)
+%             (e) -- (f)
+%             (f) -- (g);
+%         \end{tikzpicture}
+%     \end{figure}
+% \end{frame}
+
+%% K3,3
+\begin{frame}{Example $K_{3,3}$}
     \begin{figure}
-        \begin{tikzpicture}
-            \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
-            \node (a) at (0,4)   {a};
-            \node (b) at (0.5,1) {b};
-            \node (c) at (2,0)   {c};
-            \node (d) at (2,3)   {d};
-            \node (e) at (3,4)   {e};
-            \node (f) at (4,3)   {f};
-            \node (g) at (4,1)   {g};
-            
-            \draw 
-            (a) edge [out=30, in=45, looseness=1.75] (g)
-            (a) -- (b)
-            (a) -- (c)
-            (a) -- (d)
-            (a) -- (e)
-            (b) -- (c)
-            (b) -- (g)
-            (b) -- (f)
-            (c) -- (g)
-            (d) -- (e)
-            (d) -- (g)
-            (d) -- (f)
-            (e) -- (f)
-            (f) -- (g);
-        \end{tikzpicture}
+        \includegraphics[trim={11.5cm 17cm 5.5cm 7.25cm}, clip, width=.5\linewidth]{p726}
     \end{figure}
 \end{frame}
 
-\begin{frame}{Example 2}
+\begin{frame}{Example $K_{3,3}$}
     \begin{figure}
-        \begin{tikzpicture}
-            \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
-            \node (a) at (0,4)   {a};
-            \node (b) at (0.5,1) {b};
-            \node (c) at (-0.5,-0.5)   {c};
-            \node (d) at (2,3)   {d};
-            \node (e) at (3,4)   {e};
-            \node (f) at (4,3)   {f};
-            \node (g) at (4,1)   {g};
-            
-            \draw 
-            (a) edge [out=30, in=45, looseness=1.75] (g)
-            (a) -- (b)
-            (a) -- (c)
-            (a) -- (d)
-            (a) -- (e)
-            (b) -- (c)
-            (b) -- (g)
-            (b) -- (f)
-            (c) -- (g)
-            (d) -- (e)
-            (d) -- (g)
-            (d) -- (f)
-            (e) -- (f)
-            (f) -- (g);
-        \end{tikzpicture}
+        \includegraphics[trim={11.5cm 17cm 5.5cm 7.25cm}, clip, width=.5\linewidth]{p726}
     \end{figure}
-\end{frame}
-
-\begin{frame}{Example 2}
-    \begin{figure}
-        \begin{tikzpicture}
-            \tikzstyle{every node}=[draw, shape=circle, scale=0.8]
-            \node (a) at (0,4)   {a};
-            \node (b) at (0.5,1) {b};
-            \node (c) at (-0.5,-0.5)   {c};
-            \node (d) at (3,4)   {d};
-            \node (e) at (1.5,3)   {e};
-            \node (f) at (2.5,2)   {f};
-            \node (g) at (4,1)   {g};
-            
-            \draw 
-            (a) edge [out=30, in=45, looseness=1.75] (g)
-            (a) -- (b)
-            (a) -- (c)
-            (a) -- (d)
-            (a) -- (e)
-            (b) -- (c)
-            (b) -- (g)
-            (b) -- (f)
-            (c) -- (g)
-            (d) -- (e)
-            (d) -- (g)
-            (d) -- (f)
-            (e) -- (f)
-            (f) -- (g);
-        \end{tikzpicture}
-    \end{figure}
+    \centering
+    This graph is nonplanar, since it contains $K_{3,3}$ as a subgraph: the parts are $\{a, g, d\}$ and $\{b, c, e\}$.
 \end{frame}
 
 %% Q3
-\begin{frame}{Example 3}
+\begin{frame}{Example $Q_3$}
     \begin{figure}
         \begin{tikzpicture}[scale=1.5]
             \tikzstyle{every node}=[draw, shape=circle]
@@ -829,7 +856,7 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{Example 3}
+\begin{frame}{Example $Q_3$}
     \begin{figure}
         \begin{tikzpicture}[scale=1.5]
             \tikzstyle{every node}=[draw, shape=circle]
@@ -860,7 +887,7 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{Example 3}
+\begin{frame}{Example $Q_3$}
     \begin{figure}
         \begin{tikzpicture}[scale=1.5]
             \tikzstyle{every node}=[draw, shape=circle]
@@ -891,7 +918,7 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{Example 3}
+\begin{frame}{Example $Q_3$}
     \begin{figure}
         \begin{tikzpicture}[scale=1.5]
             \tikzstyle{every node}=[draw, shape=circle]
@@ -920,21 +947,6 @@
             ;
         \end{tikzpicture}
     \end{figure}
-\end{frame}
-
-%% K3,3
-\begin{frame}{Example 4}
-    \begin{figure}
-        \includegraphics[trim={11.5cm 17cm 5.5cm 7.25cm}, clip, width=.5\linewidth]{p726}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{Example 4}
-    \begin{figure}
-        \includegraphics[trim={11.5cm 17cm 5.5cm 7.25cm}, clip, width=.5\linewidth]{p726}
-    \end{figure}
-    \centering
-    This graph is nonplanar, since it contains $K_{3,3}$ as a subgraph: the parts are $\{a, g, d\}$ and $\{b, c, e\}$.
 \end{frame}
 
 \section{Trees}
